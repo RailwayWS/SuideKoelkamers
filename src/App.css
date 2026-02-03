@@ -1,0 +1,106 @@
+/* Reset & Fonts */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    color: #fff;
+    background-color: #1a1a1a;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.top-left {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darkens the meat image */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-icon-wrapper {
+    margin-bottom: 20px;
+}
+
+.slider-icon {
+    width: 80px; /* Adjust based on your icon size */
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.hero-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 100px; /* Huge text */
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.hero-subtitle {
+    color: #e53935; /* Red accent color */
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.cta-button {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition:
+        transform 0.2s,
+        background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+}

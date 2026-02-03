@@ -1,0 +1,131 @@
+/* --- About Section --- */
+.about-section {
+    position: relative;
+    background-color: #fff;
+    padding: 100px 400px; /* Generous spacing */
+    overflow: hidden;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2; /* Ensures content sits above the watermark */
+}
+
+/* Watermark "About" Text */
+.watermark-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-family: "Oswald", sans-serif;
+    font-size: 280px; /* Massive text */
+    font-weight: 700;
+    color: #f9f9f9; /* Very faint grey to blend into background */
+    z-index: -1;
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+}
+
+/* --- Left Column Text --- */
+.about-left {
+    flex: 1;
+    max-width: 45%;
+}
+
+.subtitle-script {
+    font-family: "Yellowtail", cursive; /* The script font */
+    color: #e53935;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.title-large {
+    font-family: "Oswald", sans-serif;
+    font-size: 50px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin-bottom: 35px;
+    text-transform: capitalize;
+}
+
+.highlight-red {
+    color: #e53935;
+}
+
+/* --- Right Column Circles --- */
+.about-right {
+    display: flex;
+    gap: 30px; /* Space between circles */
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+/* Outer ring (Thin grey line) */
+.category-circle-outer {
+    width: 110px;
+    height: 110px;
+    border: 1px solid #ddd; /* Thin grey border */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s;
+}
+
+/* Inner Circle (Dark Brown Fill) */
+.category-circle-inner {
+    width: 90px;
+    height: 90px;
+    background-color: #3e2723; /* Dark brown brand color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+}
+
+/* Hover Effects */
+.category-item:hover .category-circle-outer {
+    border-color: #e53935;
+}
+
+.category-item:hover .category-circle-inner {
+    background-color: #e53935; /* Turns red on hover */
+    transform: scale(0.9); /* Slight press effect */
+}
+
+.category-label {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-icon {
+    width: 50%; /* Size the icon relative to the circle */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Add a hover effect for the icon specifically */
+.category-item:hover .category-icon {
+    transform: scale(1.1); /* Subtle pop */
+}

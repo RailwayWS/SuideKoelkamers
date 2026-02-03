@@ -1,0 +1,144 @@
+/* --- Products Section --- */
+.products-section {
+    background-color: #fcf7f2; /* Same beige as the previous section */
+    padding: 80px 0 100px 0;
+    text-align: center;
+}
+
+.products-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Reusing .section-header from previous steps */
+.section-header {
+    margin-bottom: 50px;
+}
+
+/* --- Grid Layout --- */
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+/* --- Product Card --- */
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    width: 270px; /* Adjust based on screen size */
+    padding: 30px 20px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge */
+.product-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.product-badge .star {
+    color: #e53935; /* Red star */
+    font-size: 10px;
+}
+
+/* Image */
+.product-img-wrapper {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Info Text */
+.product-category {
+    color: #e53935;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-family: "Oswald", sans-serif;
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.product-price {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+/* Quantity Selector (Pill Shape) */
+.product-actions {
+    background-color: #f5f5f5;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 15px;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #777;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0 5px;
+    transition: color 0.2s;
+}
+
+.qty-btn:hover {
+    color: #e53935;
+}
+
+.qty-val {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    min-width: 10px;
+}
+
+/* Footer Button wrapper */
+.products-footer {
+    margin-top: 10px;
+}

@@ -1,0 +1,52 @@
+/* --- Navbar --- */
+.navbar {
+    position: absolute;
+    top: 40px; /* Below top bar */
+    width: 100%;
+    z-index: 20;
+    padding: 20px 0;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links li {
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.nav-links li:hover,
+.nav-links li.active {
+    color: #fff;
+}
+
+.nav-links li .dot {
+    position: absolute;
+    bottom: -15px;
+    color: #e53935;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.phone-btn {
+    background-color: #e53935;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+}

@@ -1,0 +1,137 @@
+/* --- Why Choose Section --- */
+.choose-section {
+    position: relative;
+    background-color: #fcf7f2; /* Fallback beige */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat; /* If it's a pattern tile */
+    padding: 80px 0 100px 0;
+    text-align: center;
+}
+
+.choose-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choose-header {
+    margin-bottom: 40px;
+}
+
+.scissors-separator {
+    color: #e53935;
+    font-size: 24px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* --- Central Image & Watermark --- */
+.choose-center {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.watermark-large {
+    position: absolute;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.03); /* Very faint grey */
+    z-index: 0;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cutting-board-img {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+}
+
+/* --- Feature Cards --- */
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px 10px 30px 10px; /* Slight unique curve */
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon-circle {
+    width: 70px;
+    height: 70px;
+    background-color: #e53935;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow:
+        0 0 0 5px #fff,
+        0 0 0 6px #e53935; /* Double border effect */
+}
+
+.feature-icon {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    display: block;
+
+    /* If your PNGs are dark, this turns them white to match the red circle */
+    filter: brightness(0) invert(1);
+}
+
+.card-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: #e53935;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
