@@ -30,7 +30,7 @@ function App() {
                             />
                         </div>
 
-                        <h1 className="hero-title">Fresh Meat</h1>
+                        <h1 className="hero-title">Suide Koelkamers</h1>
                         <h2 className="hero-subtitle">BUTCHER & MEAT SHOP</h2>
 
                         <button className="cta-button">ORDER NOW</button>
