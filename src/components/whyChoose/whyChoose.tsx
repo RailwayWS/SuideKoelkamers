@@ -1,33 +1,90 @@
+import { useState } from "react";
 import "./whyChoose.css";
 
 import chooseBg from "../../assets/choose_bg.jpg";
-import chooseImg from "../../assets/choose_img.png";
 import titleShapeImg from "../../assets/title_shape.png";
 
 import butcheringIcon from "../../assets/butchering.png";
 import fireIcon from "../../assets/fire.png";
 import meatIcon from "../../assets/meat.png";
 
-const FEATURES = [
+type Feature = {
+    title: string;
+    shortDesc: string;
+    longDesc: string;
+    icon: string;
+    iconAlt: string;
+};
+
+const FEATURES: Feature[] = [
     {
-        title: "Lorem Ipsum",
-        desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula.",
+        title: "Fresh, Local Meat",
+        shortDesc:
+            "Premium local meat from farm to table, including our award-winning 2010 boerewors.",
+        longDesc:
+            "We offer a wide selection of cuts—lamb, beef, pork, and chicken. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite’s Boerewors Competition in 2010—so we can highly recommend our boerewors too.",
         icon: butcheringIcon,
         iconAlt: "Butchering",
     },
     {
-        title: "Lorem Ipsum",
-        desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula.",
-        icon: fireIcon,
-        iconAlt: "Fire",
-    },
-    {
-        title: "lorem Ipsum",
-        desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula.",
+        title: "Pure Cold Meats",
+        shortDesc: "Handcrafted cured meat products made from 100% pure meat.",
+        longDesc:
+            "We also make handcrafted cured meats from 100% pure meat, with no unnecessary additives. They’re currently available in delicious pork and beef options.",
         icon: meatIcon,
         iconAlt: "Meat",
     },
+    {
+        title: "Daily Deli",
+        shortDesc:
+            "A deli packed with fresh, homemade meals and takeaways to make your afternoons easier.",
+        longDesc:
+            "To make life easier in the afternoons, our deli prepares homemade dishes every day. Come enjoy our tasty burgers, pizzas, braai favourites, Russians, and real hand-cut chips.",
+        icon: fireIcon,
+        iconAlt: "Fire",
+    },
 ];
+
+// Sub-component to handle the individual flip state of each card
+const FeatureCard = ({ feature }: { feature: Feature }) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleFlip = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        setIsFlipped(!isFlipped);
+    };
+
+    return (
+        <div className={`feature-card ${isFlipped ? "flipped" : ""}`}>
+            <div className="card-inner">
+                {/* Front of the card */}
+                <div className="card-front">
+                    <div className="card-icon-circle">
+                        <img
+                            src={feature.icon}
+                            alt={feature.iconAlt}
+                            className="feature-icon"
+                        />
+                    </div>
+                    <h3 className="card-title">{feature.title}</h3>
+                    <p className="card-desc">{feature.shortDesc}</p>
+                    <a href="#" className="card-link" onClick={handleFlip}>
+                        LEARN MORE
+                    </a>
+                </div>
+
+                {/* Back of the card */}
+                <div className="card-back">
+                    <h3 className="card-title">{feature.title}</h3>
+                    <p className="card-desc">{feature.longDesc}</p>
+                    <a href="#" className="card-link" onClick={handleFlip}>
+                        GO BACK
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default function WhyChooseSection() {
     return (
@@ -38,41 +95,19 @@ export default function WhyChooseSection() {
             <div className="container choose-container">
                 {/* Header */}
                 <div className="choose-header">
-                    <span className="subtitle-script">
-                        About Suide Koelkamers
-                    </span>
-                    <h2 className="title-large">Why Choose Our Shop</h2>
+                    <span className="subtitle-script">What we Offer</span>
+                    <h2 className="title-large">Why Choose Us?</h2>
                     <div className="scissors-separator">
                         <img src={titleShapeImg} alt="Section separator" />
                     </div>
                 </div>
 
                 {/* Central Content */}
-                <div className="choose-center">
-                    <img
-                        src={chooseImg}
-                        alt="Cutting Board Meat"
-                        className="cutting-board-img"
-                    />
-                </div>
 
-                {/* Feature Cards */}
+                {/* Feature Cards Grid */}
                 <div className="features-grid">
                     {FEATURES.map((feature) => (
-                        <div key={feature.title} className="feature-card">
-                            <div className="card-icon-circle">
-                                <img
-                                    src={feature.icon}
-                                    alt={feature.iconAlt}
-                                    className="feature-icon"
-                                />
-                            </div>
-                            <h3 className="card-title">{feature.title}</h3>
-                            <p className="card-desc">{feature.desc}</p>
-                            <a href="#" className="card-link">
-                                LEARN MORE
-                            </a>
-                        </div>
+                        <FeatureCard key={feature.title} feature={feature} />
                     ))}
                 </div>
             </div>

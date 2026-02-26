@@ -1,6 +1,6 @@
 import "./App.css";
 import sliderIcon from "./assets/slider_icon.png";
-import sliderBg from "./assets/slider_bg02.jpg";
+import hero from "./assets/hero_background.png";
 import Navbar from "./components/navbar/navbar";
 import AboutSection from "./components/about/about";
 import WhyChooseSection from "./components/whyChoose/whyChoose";
@@ -16,7 +16,7 @@ function App() {
             {/* Hero Section */}
             <header
                 className="hero"
-                style={{ backgroundImage: `url(${sliderBg})` }}
+                style={{ backgroundImage: `url(${hero})` }}
             >
                 <div className="hero-overlay"></div>
                 <div className="container hero-container-inner">

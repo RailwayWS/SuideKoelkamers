@@ -1,0 +1,59 @@
+1. Home Page
+
+Goal: Ensure this page is the most comprehensive so visitors get the main idea immediately without needing to click to other pages.
+
+    [ ] Add a link to the Facebook page.
+
+    [ ] Images to include:
+
+        A photo of the shop from the outside.
+
+        The "Weg" magazine photo.
+
+        One of the "Nama clothing" photos featuring the pink wall.
+
+    [ ] Copy to include:
+
+        Copy exact text from the "Weg" ad: "Waar kliente vriende word" (Where clients become friends) and "Die rede agter hierdie trotse Namibiese slaghuis spruit uit n passie......" (The reason behind this proud Namibian butchery stems from a passion...).
+
+        Add this sentence over the "Weg" photo: "Top plaaslike vleis sal ons seker maak ...." (Top local meat we will make sure...).
+
+        Add a call to action: "Bestel gerus vooraf dan wag jou bestelling jou in." (Feel free to order in advance so your order is waiting for you).
+
+    [ ] Contact / Location Info: Add the names "Suide Koelkamers / Suide Vleis" along with the physical address, phone number, and email address.
+
+2. What We Offer Page
+
+    [ ] Images to include: * "Behind the scenes" photos (e.g., at the meat saw, salami making—no need to use all of them).
+
+        Smaller photos of other meats: Lamb, biltong, and sosaties (kebabs).
+
+    [ ] Copy to include:
+
+        Main text: "Top plaaslike vleis wat van die plaas tot op jou tafel. Ons bied 'n verskeidenheid snitte lam, bees, vark en hoender." (Top local meat from the farm to your table. We offer a variety of cuts of lamb, beef, pork, and chicken.)
+
+        Butcher highlight: "Wikus Malan ons slaghuis meester is ook 'n boerewors koning wat Shoprite se Boerewors kompetisie in 2010 gewen het. So ons sal beslis ons boerewors ook aanbeveel." (Wikus Malan, our master butcher, is also a boerewors king who won the Shoprite Boerewors competition in 2010. So we highly recommend our boerewors.)
+
+        Cold meats: "Ons maak ook Handgemaakte Kouevleis produkte wat van 100% suiwer vleis gemaak word. Beskikbaar in vark en bees." (We also make Handmade Cold Meats made from 100% pure meat. Available in pork and beef.)
+
+        Deli section: "Om die lewe makliker te maak oor die middae het ons ook 'n Deli wat elke dag tuisgemaakte disse maak asook burgers pizza braaivleis russians en handgesnyde chips." (To make life easier in the afternoons, we also have a Deli that prepares homemade dishes daily, as well as burgers, pizzas, braaivleis, russians, and hand-cut chips.)
+
+3. Order Page
+
+    [ ] Copy to include: "Kontak ons vooraf en ons maak seker jou bestelling wag jou in." (Contact us in advance and we will make sure your order is waiting for you.)
+
+    [ ] Layout the 3-Step Process:
+
+        Stap 1: Kontak ons (Contact us)
+
+        Stap 2: Bestel op bestel lys (Order from the order list)
+
+        Stap 3: Kom loer in en tel bestelling op (Pop in and pick up your order)
+
+    [ ] Functionality: Add a contact form (a block to type and send an email).
+
+    [ ] Contact Info: Display the landline and cellphone numbers clearly.
+
+4. Our Story Page
+
+    [ ] Copy to include: Insert the story text directly from the pamphlet.

@@ -1,6 +1,6 @@
 import "./cta.css";
 
-import ctaBg from "../../assets/cta_bg.jpg";
+import sheep from "../../assets/sheepbackground.png";
 
 const IconHeadset = () => (
     <svg
@@ -22,7 +22,7 @@ export default function CtaSection() {
     return (
         <section
             className="cta-section"
-            style={{ backgroundImage: `url(${ctaBg})` }}
+            style={{ backgroundImage: `url(${sheep})` }}
         >
             <div className="cta-overlay"></div>
 
