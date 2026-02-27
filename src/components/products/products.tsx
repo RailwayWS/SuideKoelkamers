@@ -1,157 +1,120 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./products.css";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import product1 from "../../assets/h2_product01.png";
-import product2 from "../../assets/h2_product02.png";
-import product3 from "../../assets/h2_product03.png";
-import product4 from "../../assets/h2_product04.png";
 import titleShapeImg from "../../assets/title_shape.png";
 
-type Product = {
-    id: number;
-    name: string;
-    category: string;
-    price: string;
-    img: string;
-    isNew?: boolean;
-};
+import img1 from "../../assets/products/product.jpeg";
+import img2 from "../../assets/products/product2.jpeg";
+import img3 from "../../assets/products/product3.jpeg";
+import img4 from "../../assets/products/product4.jpeg";
+import img5 from "../../assets/products/product5.jpeg";
+import img6 from "../../assets/products/product6.jpeg";
+import img7 from "../../assets/products/product7.jpeg";
 
-const PRODUCTS: Product[] = [
-    {
-        id: 1,
-        name: "ROAST CHICKEN",
-        category: "ORGANIC",
-        price: "4.99",
-        img: product1,
-        isNew: true,
-    },
-    {
-        id: 2,
-        name: "PROCESSED MEAT",
-        category: "ORGANIC",
-        price: "4.99",
-        img: product2,
-        isNew: true,
-    },
-    {
-        id: 3,
-        name: "VENISON MEAT",
-        category: "ORGANIC",
-        price: "4.99",
-        img: product3,
-        isNew: true,
-    },
-    {
-        id: 4,
-        name: "ROAST CHICKEN",
-        category: "ORGANIC",
-        price: "4.99",
-        img: product4,
-        isNew: true,
-    },
-];
+const SLIDES = [img1, img2, img3, img4, img5, img6, img7];
 
 export default function ProductsSection() {
-    const [qtyById, setQtyById] = useState<Record<number, number>>({});
+    const [current, setCurrent] = useState(0);
+    const [paused, setPaused] = useState(false);
+    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const sectionRef = useScrollReveal();
 
-    const qty = useMemo(() => {
-        const m = new Map<number, number>();
-        for (const p of PRODUCTS) m.set(p.id, qtyById[p.id] ?? 1);
-        return m;
-    }, [qtyById]);
+    const goNext = useCallback(() => {
+        setCurrent((prev) => (prev + 1) % SLIDES.length);
+    }, []);
 
-    const dec = (id: number) => {
-        setQtyById((prev) => {
-            const next = { ...prev };
-            const current = next[id] ?? 1;
-            next[id] = Math.max(1, current - 1);
-            return next;
-        });
-    };
+    const goPrev = useCallback(() => {
+        setCurrent((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+    }, []);
 
-    const inc = (id: number) => {
-        setQtyById((prev) => {
-            const next = { ...prev };
-            const current = next[id] ?? 1;
-            next[id] = current + 1;
-            return next;
-        });
-    };
+    const goTo = (idx: number) => setCurrent(idx);
+
+    /* Auto‑advance every 5s, pause on hover */
+    useEffect(() => {
+        if (paused) return;
+        timerRef.current = setInterval(goNext, 5000);
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, [paused, goNext]);
 
     return (
-        <section className="products-section">
+        <section className="products-section" ref={sectionRef}>
             <div className="container products-container">
                 {/* Header */}
-                <div className="section-header">
-                    <span className="subtitle-script">Organic Shop</span>
+                <div className="section-header reveal">
+                    <span className="subtitle-script">Premium Selection</span>
                     <h2 className="title-large">Our Organic Products</h2>
                     <div className="scissors-separator">
                         <img src={titleShapeImg} alt="Section separator" />
                     </div>
                 </div>
 
-                {/* Product Grid */}
-                <div className="products-grid">
-                    {PRODUCTS.map((product) => (
-                        <div key={product.id} className="product-card">
-                            {/* New Badge */}
-                            {product.isNew && (
-                                <div className="product-badge">
-                                    NEW <span className="star">★</span>
-                                </div>
-                            )}
-
-                            {/* Image */}
-                            <div className="product-img-wrapper">
-                                <img
-                                    src={product.img}
-                                    alt={product.name}
-                                    className="product-img"
-                                />
-                            </div>
-
-                            {/* Info */}
-                            <div className="product-info">
-                                <span className="product-category">
-                                    {product.category}
-                                </span>
-                                <h3 className="product-name">{product.name}</h3>
-                                <div className="product-price">
-                                    ${product.price}
-                                </div>
-                            </div>
-
-                            {/* Quantity Selector */}
-                            <div className="product-actions">
-                                <button
-                                    className="qty-btn"
-                                    type="button"
-                                    aria-label={`Decrease quantity for ${product.name}`}
-                                    onClick={() => dec(product.id)}
-                                >
-                                    -
-                                </button>
-                                <span className="qty-val">
-                                    {qty.get(product.id)}
-                                </span>
-                                <button
-                                    className="qty-btn"
-                                    type="button"
-                                    aria-label={`Increase quantity for ${product.name}`}
-                                    onClick={() => inc(product.id)}
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Bottom Button */}
-                <div className="products-footer">
-                    <button className="cta-button" type="button">
-                        SHOP NOW
+                {/* Carousel */}
+                <div
+                    className="modern-carousel reveal reveal--scale reveal--d2"
+                    onMouseEnter={() => setPaused(true)}
+                    onMouseLeave={() => setPaused(false)}
+                >
+                    {/* Prev */}
+                    <button
+                        className="carousel-btn carousel-btn--prev"
+                        type="button"
+                        aria-label="Previous slide"
+                        onClick={goPrev}
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
                     </button>
+
+                    {/* Viewport */}
+                    <div className="carousel-viewport">
+                        <div
+                            className="carousel-track"
+                            style={{ transform: `translateX(-${current * 100}%)` }}
+                        >
+                            {SLIDES.map((src, i) => (
+                                <div className={`carousel-slide ${i === current ? 'is-active' : ''}`} key={i}>
+                                    <div className="slide-image-wrapper">
+                                        <img
+                                            src={src}
+                                            alt={`Product ${i + 1}`}
+                                            className="carousel-img"
+                                            draggable={false}
+                                        />
+                                        <div className="carousel-overlay"></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Next */}
+                    <button
+                        className="carousel-btn carousel-btn--next"
+                        type="button"
+                        aria-label="Next slide"
+                        onClick={goNext}
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+
+                    {/* Modern Pill Indicators */}
+                    <div className="carousel-indicators">
+                        {SLIDES.map((_, i) => (
+                            <button
+                                key={i}
+                                type="button"
+                                className={`indicator-pill ${i === current ? "active" : ""}`}
+                                aria-label={`Go to slide ${i + 1}`}
+                                onClick={() => goTo(i)}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

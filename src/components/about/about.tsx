@@ -1,4 +1,5 @@
 import "./about.css";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import cowImg from "../../assets/cow.png";
 import henImg from "../../assets/hen.png";
@@ -13,14 +14,13 @@ const CATEGORIES = [
 ];
 
 export default function AboutSection() {
-    return (
-        <section className="about-section">
-            <div className="container about-container">
-                {/* Background Watermark Text */}
-                <div className="watermark-text">About</div>
+    const ref = useScrollReveal();
 
+    return (
+        <section className="about-section" ref={ref}>
+            <div className="container about-container">
                 {/* Left Content */}
-                <div className="about-left">
+                <div className="about-left reveal reveal--left">
                     <h4 className="subtitle-script">About Us</h4>
                     <h2 className="title-large">
                         Organic <br />
@@ -31,8 +31,8 @@ export default function AboutSection() {
 
                 {/* Right Content (Circles) */}
                 <div className="about-right">
-                    {CATEGORIES.map((item) => (
-                        <div key={item.label} className="category-item">
+                    {CATEGORIES.map((item, i) => (
+                        <div key={item.label} className={`category-item reveal reveal--d${i + 1}`}>
                             <div className="category-circle-outer">
                                 <div className="category-circle-inner">
                                     <img

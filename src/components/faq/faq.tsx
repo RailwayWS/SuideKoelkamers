@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./faq.css";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import faqBg from "../../assets/faq_bg.jpg";
 
@@ -39,6 +40,7 @@ const FAQS = [
 
 export default function FaqSection() {
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const ref = useScrollReveal();
 
     const toggleFaq = (index: number) => {
         setActiveIndex((prev) => (prev === index ? null : index));
@@ -48,11 +50,12 @@ export default function FaqSection() {
         <section
             className="faq-section"
             style={{ backgroundImage: `url(${faqBg})` }}
+            ref={ref}
         >
             <div className="container faq-container">
                 <div className="faq-right">
                     <h2
-                        className="title-large"
+                        className="title-large reveal"
                         style={{ textAlign: "center", marginBottom: "40px" }}
                     >
                         Frequently <span className="highlight-red">Asked</span>{" "}
@@ -64,7 +67,7 @@ export default function FaqSection() {
                         {FAQS.map((item, index) => (
                             <div
                                 key={item.question}
-                                className={`faq-item ${activeIndex === index ? "active" : ""}`}
+                                className={`faq-item reveal reveal--d${index + 1} ${activeIndex === index ? "active" : ""}`}
                             >
                                 <button
                                     className="faq-question"

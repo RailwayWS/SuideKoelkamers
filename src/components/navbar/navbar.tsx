@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./navbar.css";
 
-const NAV_LINKS = ["Home", "What we Offer", "Our Story", "Order"];
+const NAV_LINKS = ["Home", "What we Offer", "Our Story", "Products", "Contact"];
 
 export default function Navbar() {
     const [activeLink, setActiveLink] = useState("Home");

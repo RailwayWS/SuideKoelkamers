@@ -1,7 +1,7 @@
 /* --- Products Section --- */
 .products-section {
-    background-color: #fcf7f2; /* Same beige as the previous section */
-    padding: 80px 0 100px 0;
+    background-color: #fcf7f2;
+    padding: 100px 0 120px 0;
     text-align: center;
 }
 
@@ -9,136 +9,179 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 20px;
 }
 
-/* Reusing .section-header from previous steps */
 .section-header {
-    margin-bottom: 50px;
-}
-
-/* --- Grid Layout --- */
-.products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
     margin-bottom: 60px;
 }
 
-/* --- Product Card --- */
-.product-card {
-    background: #fff;
-    border-radius: 10px;
-    width: 270px; /* Adjust based on screen size */
-    padding: 30px 20px;
+/* ========= Modern Carousel ========= */
+.modern-carousel {
     position: relative;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 24px;
+    /* Soft, diffuse shadow for a floating effect */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); 
+    overflow: hidden;
+    background: #000; /* Dark background to make image transitions pop */
+}
+
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+    /* Force hardware acceleration for smoother rendering */
+    transform: translateZ(0); 
+}
+
+.carousel-track {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    /* Buttery smooth easing curve */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Badge */
-.product-badge {
+.slide-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    /* Ken Burns scale effect */
+    transform: scale(1.15);
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide.is-active .carousel-img {
+    transform: scale(1); /* Image zooms out slightly when active */
+}
+
+/* Optional: Subtle gradient overlay to make any future text readable */
+.carousel-overlay {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 10px;
-    font-weight: 700;
-    color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    gap: 2px;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%);
+    pointer-events: none;
 }
 
-.product-badge .star {
-    color: #e53935; /* Red star */
-    font-size: 10px;
-}
-
-/* Image */
-.product-img-wrapper {
-    height: 150px;
+/* --- Glassmorphism Arrow Buttons --- */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #ffffff;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
 }
 
-.product-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.modern-carousel:hover .carousel-btn {
+    opacity: 1;
 }
 
-/* Info Text */
-.product-category {
-    color: #e53935;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.product-name {
-    font-family: "Oswald", sans-serif;
-    font-size: 18px;
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
     color: #1a1a1a;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    transform: translateY(-50%) scale(1.05);
 }
 
-.product-price {
-    font-weight: 700;
-    font-size: 16px;
-    color: #1a1a1a;
-    margin-bottom: 20px;
+.carousel-btn svg {
+    width: 24px;
+    height: 24px;
 }
 
-/* Quantity Selector (Pill Shape) */
-.product-actions {
-    background-color: #f5f5f5;
-    border-radius: 30px;
+.carousel-btn--prev { left: 24px; }
+.carousel-btn--next { right: 24px; }
+
+/* --- Modern Pill Indicators --- */
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    gap: 15px;
+    gap: 8px;
+    z-index: 10;
 }
 
-.qty-btn {
-    background: none;
+.indicator-pill {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
     border: none;
-    font-size: 16px;
-    color: #777;
+    background: rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    font-weight: bold;
-    padding: 0 5px;
-    transition: color 0.2s;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 0;
 }
 
-.qty-btn:hover {
-    color: #e53935;
+.indicator-pill.active {
+    background: #ffffff;
+    width: 32px; /* Expands into a pill shape when active */
 }
 
-.qty-val {
-    font-size: 12px;
-    font-weight: 700;
-    color: #1a1a1a;
-    min-width: 10px;
+.indicator-pill:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.8);
 }
 
-/* Footer Button wrapper */
-.products-footer {
-    margin-top: 10px;
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .modern-carousel {
+        border-radius: 16px;
+    }
+    
+    .carousel-viewport {
+        border-radius: 16px;
+    }
+
+    .slide-image-wrapper {
+        height: 400px;
+    }
+
+    .carousel-btn {
+        width: 44px;
+        height: 44px;
+        opacity: 1; /* Always visible on touch devices */
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .carousel-btn--prev { left: 12px; }
+    .carousel-btn--next { right: 12px; }
+}
+
+@media (max-width: 480px) {
+    .slide-image-wrapper {
+        height: 320px;
+    }
+    .products-section {
+        padding: 60px 0 80px 0;
+    }
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./whyChoose.css";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import chooseBg from "../../assets/choose_bg.jpg";
 import titleShapeImg from "../../assets/title_shape.png";
@@ -22,7 +23,7 @@ const FEATURES: Feature[] = [
         shortDesc:
             "Premium local meat from farm to table, including our award-winning 2010 boerewors.",
         longDesc:
-            "We offer a wide selection of cuts—lamb, beef, pork, and chicken. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite’s Boerewors Competition in 2010—so we can highly recommend our boerewors too.",
+            "We offer a wide selection of cuts—lamb, beef, pork, and chicken. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite's Boerewors Competition in 2010—so we can highly recommend our boerewors too.",
         icon: butcheringIcon,
         iconAlt: "Butchering",
     },
@@ -30,7 +31,7 @@ const FEATURES: Feature[] = [
         title: "Pure Cold Meats",
         shortDesc: "Handcrafted cured meat products made from 100% pure meat.",
         longDesc:
-            "We also make handcrafted cured meats from 100% pure meat, with no unnecessary additives. They’re currently available in delicious pork and beef options.",
+            "We also make handcrafted cured meats from 100% pure meat, with no unnecessary additives. They're currently available in delicious pork and beef options.",
         icon: meatIcon,
         iconAlt: "Meat",
     },
@@ -46,7 +47,7 @@ const FEATURES: Feature[] = [
 ];
 
 // Sub-component to handle the individual flip state of each card
-const FeatureCard = ({ feature }: { feature: Feature }) => {
+const FeatureCard = ({ feature, delay }: { feature: Feature; delay: number }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleFlip = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -55,7 +56,7 @@ const FeatureCard = ({ feature }: { feature: Feature }) => {
     };
 
     return (
-        <div className={`feature-card ${isFlipped ? "flipped" : ""}`}>
+        <div className={`feature-card ${isFlipped ? "flipped" : ""} reveal reveal--d${delay}`}>
             <div className="card-inner">
                 {/* Front of the card */}
                 <div className="card-front">
@@ -87,14 +88,17 @@ const FeatureCard = ({ feature }: { feature: Feature }) => {
 };
 
 export default function WhyChooseSection() {
+    const ref = useScrollReveal();
+
     return (
         <section
             className="choose-section"
             style={{ backgroundImage: `url(${chooseBg})` }}
+            ref={ref}
         >
             <div className="container choose-container">
                 {/* Header */}
-                <div className="choose-header">
+                <div className="choose-header reveal">
                     <span className="subtitle-script">What we Offer</span>
                     <h2 className="title-large">Why Choose Us?</h2>
                     <div className="scissors-separator">
@@ -106,8 +110,8 @@ export default function WhyChooseSection() {
 
                 {/* Feature Cards Grid */}
                 <div className="features-grid">
-                    {FEATURES.map((feature) => (
-                        <FeatureCard key={feature.title} feature={feature} />
+                    {FEATURES.map((feature, i) => (
+                        <FeatureCard key={feature.title} feature={feature} delay={i + 1} />
                     ))}
                 </div>
             </div>

@@ -7,6 +7,7 @@ import WhyChooseSection from "./components/whyChoose/whyChoose";
 import ProductsSection from "./components/products/products";
 import CtaSection from "./components/cta/cta";
 import FaqSection from "./components/faq/faq";
+import ContactSection from "./components/contact/contact";
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
                 <div className="container hero-container-inner">
                     <div className="hero-content">
                         {/* Central Icon */}
-                        <div className="hero-icon-wrapper">
+                        <div className="hero-icon-wrapper hero-fade hero-fade--d1">
                             <img
                                 src={sliderIcon}
                                 alt="Butcher Icon"
@@ -30,10 +31,10 @@ function App() {
                             />
                         </div>
 
-                        <h1 className="hero-title">Suide Koelkamers</h1>
-                        <h2 className="hero-subtitle">BUTCHER & MEAT SHOP</h2>
+                        <h1 className="hero-title hero-fade hero-fade--d2">Suide Koelkamers</h1>
+                        <h2 className="hero-subtitle hero-fade hero-fade--d3">BUTCHER & MEAT SHOP</h2>
 
-                        <button className="cta-button">ORDER NOW</button>
+                        <button className="cta-button hero-fade hero-fade--d4">CONTACT US</button>
                     </div>
                 </div>
             </header>
@@ -47,6 +48,8 @@ function App() {
             <CtaSection />
 
             <FaqSection />
+
+            <ContactSection />
         </div>
     );
 }

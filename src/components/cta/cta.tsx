@@ -1,4 +1,5 @@
 import "./cta.css";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import sheep from "../../assets/sheepbackground.png";
 
@@ -19,17 +20,20 @@ const IconHeadset = () => (
 );
 
 export default function CtaSection() {
+    const ref = useScrollReveal();
+
     return (
         <section
             className="cta-section"
             style={{ backgroundImage: `url(${sheep})` }}
+            ref={ref}
         >
             <div className="cta-overlay"></div>
 
             <div className="container cta-content">
-                <h2 className="cta-title">GET A FREE QUOTE</h2>
+                <h2 className="cta-title reveal">GET A FREE QUOTE</h2>
 
-                <div className="cta-buttons">
+                <div className="cta-buttons reveal reveal--d2">
                     <button className="cta-btn-primary" type="button">
                         BUY NOW
                     </button>
