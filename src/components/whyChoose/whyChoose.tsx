@@ -28,10 +28,10 @@ const FEATURES: Feature[] = [
         iconAlt: "Butchering",
     },
     {
-        title: "Pure Cold Meats",
-        shortDesc: "Handcrafted cured meat products made from 100% pure meat.",
+        title: "Fresh Cold Meats",
+        shortDesc: "Handcrafted cured meat products made from 100% fresh meat.",
         longDesc:
-            "We also make handcrafted cured meats from 100% pure meat, with no unnecessary additives. They're currently available in delicious pork and beef options.",
+            "We also make handcrafted cured meats from 100% fresh meat, with no unnecessary additives. They're currently available in delicious pork and beef options.",
         icon: meatIcon,
         iconAlt: "Meat",
     },
