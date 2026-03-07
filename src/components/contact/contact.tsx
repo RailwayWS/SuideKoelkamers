@@ -129,7 +129,8 @@ export default function ContactSection() {
                                 </div>
                                 <div className="info-text">
                                     <span className="info-label">Phone</span>
-                                    <span className="info-value">+27 12 345 6789</span>
+                                    <span className="info-value">+264 63 222 004</span>
+                                    <span className="info-value">+264 81 353 7829</span>
                                 </div>
                             </div>
                             <div className="info-card">
@@ -138,7 +139,8 @@ export default function ContactSection() {
                                 </div>
                                 <div className="info-text">
                                     <span className="info-label">Email</span>
-                                    <span className="info-value">info@suidekoelkamers.co.za</span>
+                                    <span className="info-value">koeljohann@iway.na</span>
+                                    <span className="info-value">stiena@iway.na</span>
                                 </div>
                             </div>
                             <div className="info-card">
@@ -147,7 +149,7 @@ export default function ContactSection() {
                                 </div>
                                 <div className="info-text">
                                     <span className="info-label">Address</span>
-                                    <span className="info-value">Suide Koelkamers, South Africa</span>
+                                    <span className="info-value">Schmiede str. Keetmanshoop, Namibia</span>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +157,7 @@ export default function ContactSection() {
                         <div className="contact-map">
                             <iframe
                                 title="Suide Koelkamers Location"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.123456789!2d28.123456789!3d-26.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA3JzIzLjciUyAyOMKwMDcnMjMuNyJF!5e0!3m2!1sen!2sza!4v1234567890"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1!2d18.1306!3d-26.5831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c43e51d8c1e4e3b%3A0x0!2sKeetmanshoop%2C+Namibia!5e0!3m2!1sen!2sna!4v1709000000000"
                                 width="100%"
                                 height="250"
                                 style={{ border: 0, borderRadius: "12px" }}

@@ -32,12 +32,30 @@ body {
     position: relative;
     height: 100vh;
     width: 100vw;
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
+}
+
+/* Individual background slides */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
 }
 
 .hero-overlay {
@@ -169,3 +187,52 @@ body {
 .hero-fade--d2 { animation-delay: 1s; }
 .hero-fade--d3 { animation-delay: 1.4s; }
 .hero-fade--d4 { animation-delay: 1.8s; }
+
+/* ========= Responsive — Hero & Global ========= */
+@media (max-width: 768px) {
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .hero-title {
+        font-size: 56px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .slider-icon {
+        width: 50px;
+    }
+
+    .title-large {
+        font-size: 36px;
+    }
+
+    .subtitle-script {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+        margin-bottom: 24px;
+    }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 13px;
+    }
+
+    .title-large {
+        font-size: 28px;
+    }
+}

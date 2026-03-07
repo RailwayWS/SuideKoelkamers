@@ -3,21 +3,20 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import sheep from "../../assets/sheepbackground.png";
 
-const IconHeadset = () => (
-    <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-    </svg>
-);
+const ETHOS_STATEMENTS = [
+    {
+        heading: "Customer First",
+        text: "Everything we do is about you — our customer. Our motivation as a country-styled butchery stems from our passion for sourcing naturally-reared livestock and providing our customers with farm-to-table quality products.",
+    },
+    {
+        heading: "Attention to Detail",
+        text: "Care is taken every step of the way to cater for all our customer's requirements, from selecting the best cuts of meat and creating new products to preparing your order.",
+    },
+    {
+        heading: "Small-Town Values",
+        text: "Southern small-town values and friendliness, as well as exceptional service delivery, are central to who we are and how we do business.",
+    },
+];
 
 export default function CtaSection() {
     const ref = useScrollReveal();
@@ -31,18 +30,16 @@ export default function CtaSection() {
             <div className="cta-overlay"></div>
 
             <div className="container cta-content">
-                <h2 className="cta-title reveal">GET A FREE QUOTE</h2>
+                <span className="cta-subtitle reveal">What We Believe</span>
+                <h2 className="cta-title reveal reveal--d1">OUR ETHOS</h2>
 
-                <div className="cta-buttons reveal reveal--d2">
-                    <button className="cta-btn-primary" type="button">
-                        BUY NOW
-                    </button>
-                    <button className="cta-btn-secondary" type="button">
-                        <div className="icon-circle-small">
-                            <IconHeadset />
+                <div className="ethos-grid reveal reveal--d2">
+                    {ETHOS_STATEMENTS.map((item) => (
+                        <div className="ethos-card" key={item.heading}>
+                            <h3 className="ethos-heading">{item.heading}</h3>
+                            <p className="ethos-text">{item.text}</p>
                         </div>
-                        MAKE A CALL
-                    </button>
+                    ))}
                 </div>
             </div>
         </section>

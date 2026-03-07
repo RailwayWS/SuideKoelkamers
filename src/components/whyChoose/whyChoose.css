@@ -71,7 +71,7 @@
     perspective: 1000px; /* Creates the 3D space */
     background: transparent; /* Must be transparent so faces show through */
     width: 300px;
-    min-height: 380px; /* Slightly taller to fit the back text nicely */
+    height: 380px; /* Fixed height so children with height:100% resolve correctly */
     transition: transform 0.3s;
 }
 
@@ -85,12 +85,16 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    
+    /* CRITICAL: The webkit prefix is required for Safari/iOS */
+    -webkit-transform-style: preserve-3d; 
     transform-style: preserve-3d;
 }
 
 /* Trigger the flip */
 .feature-card.flipped .card-inner {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -98,9 +102,15 @@
 .card-front,
 .card-back {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    
+    /* CRITICAL: Prefix needed for iOS/Safari */
+    -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,11 +123,15 @@
 
 /* Specific styling for the front content flow */
 .card-front {
+    z-index: 2; /* Forces front to stay on top initially */
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
     justify-content: flex-start;
 }
 
 /* Specific styling for the back (needs to be pre-rotated and centered) */
 .card-back {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     justify-content: center;
 }
@@ -175,3 +189,33 @@
 .card-link:hover {
     text-decoration: underline;
 }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .choose-section {
+        padding: 60px 0 80px 0;
+    }
+
+    .features-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .feature-card {
+        width: 90%;
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .choose-section {
+        padding: 40px 0 60px 0;
+    }
+}
+

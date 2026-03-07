@@ -55,7 +55,7 @@ export default function FaqSection() {
             <div className="container faq-container">
                 <div className="faq-right">
                     <h2
-                        className="title-large reveal"
+                        className="title-large"
                         style={{ textAlign: "center", marginBottom: "40px" }}
                     >
                         Frequently <span className="highlight-red">Asked</span>{" "}
@@ -67,7 +67,7 @@ export default function FaqSection() {
                         {FAQS.map((item, index) => (
                             <div
                                 key={item.question}
-                                className={`faq-item reveal reveal--d${index + 1} ${activeIndex === index ? "active" : ""}`}
+                                className={`faq-item ${activeIndex === index ? "active" : ""}`}
                             >
                                 <button
                                     className="faq-question"

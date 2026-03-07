@@ -23,7 +23,7 @@ const FEATURES: Feature[] = [
         shortDesc:
             "Premium local meat from farm to table, including our award-winning 2010 boerewors.",
         longDesc:
-            "We offer a wide selection of cuts—lamb, beef, pork, and chicken. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite's Boerewors Competition in 2010—so we can highly recommend our boerewors too.",
+            "To ensure succulent meat cuts, we use pork produced at our own OppiKoppi piggery, where we keep to stringent standards, and we source lamb and beef from local farmers that is reared on the unique natural grazing of southern Namibia. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite's Boerewors Competition in 2010.",
         icon: butcheringIcon,
         iconAlt: "Butchering",
     },
@@ -31,7 +31,7 @@ const FEATURES: Feature[] = [
         title: "Fresh Cold Meats",
         shortDesc: "Handcrafted cured meat products made from 100% fresh meat.",
         longDesc:
-            "We also make handcrafted cured meats from 100% fresh meat, with no unnecessary additives. They're currently available in delicious pork and beef options.",
+            "We pride ourselves in our specialty products such as our handmade curated cold meat range, which includes salami, ham, rauchfleisch, footlongs, pork and beef russians, viennas and jagdwurst — all made from 100% fresh meat with no unnecessary additives.",
         icon: meatIcon,
         iconAlt: "Meat",
     },
@@ -47,7 +47,7 @@ const FEATURES: Feature[] = [
 ];
 
 // Sub-component to handle the individual flip state of each card
-const FeatureCard = ({ feature, delay }: { feature: Feature; delay: number }) => {
+const FeatureCard = ({ feature }: { feature: Feature; delay: number }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleFlip = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -56,7 +56,7 @@ const FeatureCard = ({ feature, delay }: { feature: Feature; delay: number }) =>
     };
 
     return (
-        <div className={`feature-card ${isFlipped ? "flipped" : ""} reveal reveal--d${delay}`}>
+        <div className={`feature-card ${isFlipped ? "flipped" : ""}`}>
             <div className="card-inner">
                 {/* Front of the card */}
                 <div className="card-front">

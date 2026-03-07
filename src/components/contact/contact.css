@@ -1,13 +1,54 @@
 /* ========= Contact Section ========= */
 .contact-section {
+    position: relative;
     background-color: #1a1a1a;
+    background-image:
+        radial-gradient(ellipse at 80% 20%, rgba(229, 57, 53, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(229, 57, 53, 0.04) 0%, transparent 50%),
+        linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
     padding: 100px 0;
     color: #fff;
+    overflow: hidden;
+}
+
+/* Decorative glowing orb — top right */
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(229, 57, 53, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Decorative glowing orb — bottom left */
+.contact-section::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(229, 57, 53, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure content sits above decorative elements */
+.contact-section > * {
+    position: relative;
+    z-index: 1;
 }
 
 .contact-container {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* --- Header --- */

@@ -114,3 +114,32 @@
         transition: none;
     }
 }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .faq-right {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .faq-question {
+        font-size: 14px;
+        padding: 16px 18px;
+    }
+
+    .faq-answer {
+        padding: 0 18px 18px 18px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-question {
+        font-size: 13px;
+        padding: 14px 16px;
+    }
+}
