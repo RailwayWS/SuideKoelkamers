@@ -35,6 +35,22 @@
     color: #fff;
 }
 
+/* === Technique 6: Underline sweep on nav links === */
+.nav-links li::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e53935;
+    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
 .nav-links li .dot {
     position: absolute;
     bottom: -15px;

@@ -52,9 +52,24 @@
 }
 
 /* --- Header --- */
+/* === Technique 3: Visual rhyming — accent line above header === */
 .contact-header {
     text-align: center;
     margin-bottom: 60px;
+    position: relative;
+    padding-top: 20px;
+}
+
+.contact-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #e53935;
+    border-radius: 2px;
 }
 
 .contact-subtitle {
@@ -80,12 +95,14 @@
     color: #e53935;
 }
 
+/* === Technique 5: Opacity hierarchy on description === */
 .contact-desc {
     font-size: 15px;
     color: #aaa;
     max-width: 520px;
     margin: 0 auto;
     line-height: 1.7;
+    opacity: 0.65;
 }
 
 /* --- Body Layout --- */

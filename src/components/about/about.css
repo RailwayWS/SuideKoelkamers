@@ -6,6 +6,20 @@
     overflow: hidden;
 }
 
+/* === Technique 3: Visual rhyming — decorative ring === */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 350px;
+    height: 350px;
+    border: 2px dashed rgba(229, 57, 53, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
 .about-container {
     display: flex;
     align-items: center;
@@ -87,6 +101,11 @@
     transition: border-color 0.3s;
 }
 
+/* Hover Effects */
+.category-item:hover .category-circle-outer {
+    border-color: #e53935;
+}
+
 /* Inner Circle */
 .category-circle-inner {
     width: 90px;
@@ -111,6 +130,7 @@
     transform: scale(0.9);
 }
 
+/* === Technique 5: Opacity hierarchy on labels === */
 .category-label {
     font-family: "Oswald", sans-serif;
     font-weight: 700;
@@ -118,6 +138,12 @@
     color: #1a1a1a;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.category-item:hover .category-label {
+    opacity: 1;
 }
 
 .category-icon {
