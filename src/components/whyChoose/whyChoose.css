@@ -26,6 +26,96 @@
     display: inline-block;
 }
 
+/* --- Featured Product Asymmetric Banner --- */
+.featured-product {
+    background: #1a1a1a;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+    border-radius: 20px;
+    margin: 0 auto 80px auto;
+    max-width: 1000px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    display: flex; /* Asymmetric Split */
+    align-items: stretch;
+    position: relative;
+    overflow: visible; /* Allow image to break bounding box */
+    z-index: 10;
+}
+
+/* Left Content Col - 60% */
+.featured-content-left {
+    flex: 0 0 60%;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.featured-badge.subtitle-script {
+    font-size: 32px;
+    color: #e53935;
+    margin-bottom: 12px;
+    letter-spacing: normal;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.featured-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fdfbf7;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.featured-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #bbb;
+    margin: 0;
+}
+
+/* Right Image Col - 40% */
+.featured-image-right {
+    flex: 0 0 40%;
+    position: relative;
+    border-radius: 0 20px 20px 0;
+}
+
+/* Overlapping Image */
+.featured-charcuterie-img {
+    position: absolute;
+    right: -60px;
+    bottom: -50px;
+    width: 120%;
+    height: auto;
+    max-height: 130%;
+    object-fit: cover;
+    filter: drop-shadow(-10px 20px 30px rgba(0, 0, 0, 0.5));
+    border-radius: 20px; /* Optional if using a real PNG without background */
+    z-index: 1;
+}
+
+/* Quality Stamp */
+.quality-seal {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    z-index: 10;
+    transform: rotate(-45deg);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
 /* --- Central Image & Watermark --- */
 .choose-center {
     position: relative;
@@ -65,6 +155,7 @@
     gap: 30px;
     width: 100%;
     flex-wrap: wrap;
+    margin-top: 60px;
 }
 
 .feature-card {
@@ -205,6 +296,43 @@
     .feature-card {
         width: 90%;
         max-width: 360px;
+    }
+
+    .featured-product {
+        flex-direction: column;
+        margin-bottom: 60px;
+    }
+
+    .featured-content-left {
+        flex: 1 1 100%;
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .featured-image-right {
+        flex: 1 1 100%;
+        min-height: 300px;
+    }
+
+    .featured-charcuterie-img {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .quality-seal {
+        top: -60px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 100px;
+        height: 100px;
+    }
+
+    .featured-title {
+        font-size: 32px;
     }
 }
 

@@ -6,13 +6,11 @@ import titleShapeImg from "../../assets/title_shape.png";
 
 import img1 from "../../assets/products/product.jpeg";
 import img2 from "../../assets/products/product2.jpeg";
-import img3 from "../../assets/products/product3.jpeg";
+import img3 from "../../assets/products/brood.jpeg";
 import img4 from "../../assets/products/product4.jpeg";
-import img5 from "../../assets/products/product5.jpeg";
-import img6 from "../../assets/products/product6.jpeg";
-import img7 from "../../assets/products/product7.jpeg";
+import img5 from "../../assets/products/slag2.jpeg";
 
-const SLIDES = [img1, img2, img3, img4, img5, img6, img7];
+const SLIDES = [img1, img2, img3, img4, img5];
 
 export default function ProductsSection() {
     const [current, setCurrent] = useState(0);
