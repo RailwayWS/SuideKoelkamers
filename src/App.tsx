@@ -11,7 +11,6 @@ import ProductsSection from "./components/products/products";
 import CtaSection from "./components/cta/cta";
 import FaqSection from "./components/faq/faq";
 import ContactSection from "./components/contact/contact";
-import Footer from "./components/footer/footer";
 
 const HERO_SLIDES = [hero1, hero2];
 const HERO_SLOGANS = [
@@ -22,10 +21,10 @@ const SLIDE_DURATION = 10000;
 /** Time before the new slogan fades in (lets the bg transition settle first) */
 const SLOGAN_FADE_IN_DELAY = 700;
 /** Duration the slogan is invisible while text swaps (matches CSS transition) */
-const SLOGAN_TEXT_SWAP_MS  = 500;
+const SLOGAN_TEXT_SWAP_MS = 500;
 
 function App() {
-    const [currentSlide, setCurrentSlide]  = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0);
     const [displaySlogan, setDisplaySlogan] = useState(HERO_SLOGANS[0]);
     const [sloganVisible, setSloganVisible] = useState(true);
     const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -59,7 +58,7 @@ function App() {
         timerRefs.current = [t1, t2];
 
         return clearTimers;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentSlide]);
 
     /* ── Auto-advance slideshow ── */
@@ -114,7 +113,8 @@ function App() {
                             className="cta-button hero-fade hero-fade--d4"
                             onClick={() => {
                                 const el = document.getElementById("contact");
-                                if (el) el.scrollIntoView({ behavior: "smooth" });
+                                if (el)
+                                    el.scrollIntoView({ behavior: "smooth" });
                             }}
                         >
                             Contact Us
@@ -136,7 +136,6 @@ function App() {
             <CtaSection />
             <FaqSection />
             <ContactSection />
-            <Footer />
         </div>
     );
 }
