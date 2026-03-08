@@ -1,351 +1,314 @@
-/* --- Why Choose Section --- */
+/* ═══════════════════════════════════════════════
+   WHY CHOOSE SECTION
+   ═══════════════════════════════════════════════ */
 .choose-section {
-    position: relative;
-    background-color: #fcf7f2; /* Fallback beige */
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    padding: 80px 0 100px 0;
-    text-align: center;
+  position: relative;
+  background-color: #f5ede3;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  padding: 80px 0 100px;
+  text-align: center;
+}
+
+/* Tinted overlay over background pattern */
+.choose-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 237, 227, 0.82);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .choose-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .choose-header {
-    margin-bottom: 40px;
+  margin-bottom: var(--sp-6);
 }
 
 .scissors-separator {
-    color: #e53935;
-    font-size: 24px;
-    margin-top: 10px;
-    display: inline-block;
+  color: var(--color-accent);
+  font-size: 24px;
+  margin-top: var(--sp-2);
+  display: inline-block;
 }
 
-/* --- Featured Product Asymmetric Banner --- */
+/* ── Featured Product Banner ──────────────── */
 .featured-product {
-    background: #1a1a1a;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
-    border-radius: 20px;
-    margin: 0 auto 80px auto;
-    max-width: 1000px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    display: flex; /* Asymmetric Split */
-    align-items: stretch;
-    position: relative;
-    overflow: visible; /* Allow image to break bounding box */
-    z-index: 10;
+  background: var(--color-bg-dark);
+  border-radius: var(--radius-lg);
+  margin: 0 auto var(--sp-8) auto;
+  max-width: 980px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Left Content Col - 60% */
+/* Subtle grain */
+.featured-product::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)" opacity="0.04"/%3E%3C/svg%3E');
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Left Content Column */
 .featured-content-left {
-    flex: 0 0 60%;
-    padding: 60px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    position: relative;
-    z-index: 2;
+  flex: 0 0 58%;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  z-index: 2;
 }
 
 .featured-badge.subtitle-script {
-    font-size: 32px;
-    color: #e53935;
-    margin-bottom: 12px;
-    letter-spacing: normal;
-    text-transform: none;
-    font-weight: 400;
+  font-size: 28px;
+  color: var(--color-accent);
+  margin-bottom: var(--sp-2);
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .featured-title {
-    font-family: "Oswald", sans-serif;
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1.1;
-    color: #fdfbf7;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fdfbf7;
+  margin-bottom: var(--sp-4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .featured-text {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #bbb;
-    margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-muted-light);
+  margin: 0;
 }
 
-/* Right Image Col - 40% */
+/* Right Image Column */
 .featured-image-right {
-    flex: 0 0 40%;
-    position: relative;
-    border-radius: 0 20px 20px 0;
+  flex: 0 0 42%;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Overlapping Image */
 .featured-charcuterie-img {
-    position: absolute;
-    right: -60px;
-    bottom: -50px;
-    width: 120%;
-    height: auto;
-    max-height: 130%;
-    object-fit: cover;
-    filter: drop-shadow(-10px 20px 30px rgba(0, 0, 0, 0.5));
-    border-radius: 20px; /* Optional if using a real PNG without background */
-    z-index: 1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9) saturate(1.1);
+  transition: transform 0.8s ease;
+}
+
+.featured-product:hover .featured-charcuterie-img {
+  transform: scale(1.04);
 }
 
 /* Quality Stamp */
 .quality-seal {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-    z-index: 10;
-    transform: rotate(-45deg);
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  z-index: 10;
+  transform: rotate(12deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
 }
 
-/* --- Central Image & Watermark --- */
-.choose-center {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
-}
-
-.watermark-large {
-    position: absolute;
-    font-family: "Oswald", sans-serif;
-    font-weight: 700;
-    font-size: 100px;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.03);
-    z-index: 0;
-    white-space: nowrap;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.cutting-board-img {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
-}
-
-/* --- Feature Cards (Outer 3D Stage) --- */
+/* ── Feature Cards Grid ───────────────────── */
 .features-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-    flex-wrap: wrap;
-    margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-4);
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: var(--sp-7);
 }
 
+/* ── 3D Flip Card Wrapper ─────────────────── */
 .feature-card {
-    perspective: 1000px; /* Creates the 3D space */
-    background: transparent; /* Must be transparent so faces show through */
-    width: 300px;
-    height: 380px; /* Fixed height so children with height:100% resolve correctly */
-    transition: transform 0.3s;
+  perspective: 1000px;
+  background: transparent;
+  width: 290px;
+  height: 370px;
+  transition: transform var(--ease-spring);
 }
 
-/* Float up on hover */
 .feature-card:hover {
-    transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 
-/* --- The inner wrapper that actually rotates --- */
 .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-    
-    /* CRITICAL: The webkit prefix is required for Safari/iOS */
-    -webkit-transform-style: preserve-3d; 
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
-/* Trigger the flip */
 .feature-card.flipped .card-inner {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-/* --- Front and Back Face Aesthetics --- */
+/* ── Card Faces ───────────────────────────── */
 .card-front,
 .card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* CRITICAL: Prefix needed for iOS/Safari */
-    -webkit-backface-visibility: hidden; 
-    backface-visibility: hidden;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    padding: 40px 30px;
-    box-sizing: border-box; /* Ensures padding doesn't stretch the card */
-    border-radius: 10px 10px 30px 10px; /* Original unique curve */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Original soft shadow */
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg-white);
+  padding: 38px 28px;
+  border-radius: var(--radius-md) var(--radius-md) var(--radius-xl) var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-light);
 }
 
-/* Specific styling for the front content flow */
 .card-front {
-    z-index: 2; /* Forces front to stay on top initially */
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    justify-content: flex-start;
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  justify-content: flex-start;
 }
 
-/* Specific styling for the back (needs to be pre-rotated and centered) */
 .card-back {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-    justify-content: center;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  justify-content: center;
 }
 
-/* --- Card Internal Elements --- */
+/* ── Card Internal Elements ──────────────── */
 .card-icon-circle {
-    width: 70px;
-    height: 70px;
-    background-color: #e53935;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    box-shadow:
-        0 0 0 5px #fff,
-        0 0 0 6px #e53935;
+  width: 68px;
+  height: 68px;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+  box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--color-accent);
 }
 
 .feature-icon {
-    width: 34px;
-    height: 34px;
-    object-fit: contain;
-    display: block;
-    filter: brightness(0) invert(1);
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
 }
 
 .card-title {
-    font-family: "Oswald", sans-serif;
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-    text-align: center;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: var(--sp-2);
+  color: var(--color-text-dark);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* === Technique 5: Opacity hierarchy on card text === */
 .card-desc {
-    font-size: 14px;
-    color: #777;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    text-align: center;
-    opacity: 0.7;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: var(--sp-4);
+  text-align: center;
+  flex: 1;
 }
 
 .card-link {
-    font-size: 12px;
-    font-weight: 700;
-    color: #e53935;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: auto; /* Pushes the link to the bottom of the card */
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: auto;
+  padding: 8px 20px;
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  transition: background var(--ease-base), color var(--ease-base);
 }
 
 .card-link:hover {
-    text-decoration: underline;
+  background: var(--color-accent);
+  color: #fff;
 }
 
-/* --- Responsive --- */
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .featured-product { flex-direction: column; }
+
+  .featured-content-left {
+    flex: 1 1 100%;
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .featured-image-right {
+    flex: 1 1 100%;
+    min-height: 280px;
+  }
+
+  .featured-charcuterie-img {
+    position: absolute;
+  }
+
+  .quality-seal {
+    bottom: 16px;
+    right: 16px;
+    width: 90px;
+    height: 90px;
+  }
+}
+
 @media (max-width: 768px) {
-    .choose-section {
-        padding: 60px 0 80px 0;
-    }
+  .choose-section { padding: 60px 0 80px; }
 
-    .features-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-    }
+  .featured-product { margin-bottom: var(--sp-7); }
+  .featured-title   { font-size: 28px; }
 
-    .feature-card {
-        width: 90%;
-        max-width: 360px;
-    }
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-4);
+  }
 
-    .featured-product {
-        flex-direction: column;
-        margin-bottom: 60px;
-    }
-
-    .featured-content-left {
-        flex: 1 1 100%;
-        padding: 40px 30px;
-        text-align: center;
-    }
-
-    .featured-image-right {
-        flex: 1 1 100%;
-        min-height: 300px;
-    }
-
-    .featured-charcuterie-img {
-        position: relative;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    .quality-seal {
-        top: -60px;
-        right: 50%;
-        transform: translateX(50%);
-        width: 100px;
-        height: 100px;
-    }
-
-    .featured-title {
-        font-size: 32px;
-    }
+  .feature-card {
+    width: min(90%, 340px);
+  }
 }
 
 @media (max-width: 480px) {
-    .feature-card {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .choose-section {
-        padding: 40px 0 60px 0;
-    }
+  .feature-card { width: 100%; }
+  .choose-section { padding: 48px 0 64px; }
 }
-

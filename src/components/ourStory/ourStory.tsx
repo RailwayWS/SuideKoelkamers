@@ -29,7 +29,7 @@ export default function OurStorySection() {
     const ref = useScrollReveal();
 
     return (
-        <section className="story-section" ref={ref}>
+        <section className="story-section" id="our-story" ref={ref}>
             <div className="container story-container">
                 {/* Header */}
                 <div className="story-header reveal">

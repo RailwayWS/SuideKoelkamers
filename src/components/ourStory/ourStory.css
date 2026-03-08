@@ -1,175 +1,167 @@
-/* ========= Our Story Section ========= */
+/* ═══════════════════════════════════════════════
+   OUR STORY SECTION
+   ═══════════════════════════════════════════════ */
 .story-section {
-    background-color: #1a1a1a;
-    padding: 100px 0;
-    color: #fff !important;
-    overflow: hidden;
+  background-color: var(--color-bg-dark);
+  padding: var(--section-padding) 0;
+  color: var(--color-text-light);
+  overflow: hidden;
 }
 
 .story-container {
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.story-container .title-large{
-    color: #fff !important;
+.story-container .title-large {
+  color: var(--color-text-light);
 }
 
-/* --- Header --- */
+/* ── Header ───────────────────────────────── */
 .story-header {
-    text-align: center;
-    margin-bottom: 70px;
-    
+  text-align: center;
+  margin-bottom: 72px;
 }
 
-/* --- Timeline --- */
+/* ── Timeline ─────────────────────────────── */
 .story-timeline {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-/* The vertical red line */
+/* Vertical gradient line */
 .story-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        #e53935 8%,
-        #e53935 92%,
-        transparent 100%
-    );
-    transform: translateX(-50%);
-    z-index: 0;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-accent) 8%,
+    var(--color-accent) 92%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  z-index: 0;
 }
 
-/* Each timeline item */
+/* ── Each Item ────────────────────────────── */
 .story-item {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    padding: 20px 0;
-    z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding: 20px 0;
+  z-index: 1;
 }
 
-/* Alternate sides */
 .story-item:nth-child(odd) {
-    flex-direction: row;
-    padding-right: calc(50% + 40px);
-    padding-left: 0;
-    justify-content: flex-end;
+  flex-direction: row;
+  padding-right: calc(50% + 40px);
+  padding-left: 0;
+  justify-content: flex-end;
 }
 
 .story-item:nth-child(even) {
-    flex-direction: row-reverse;
-    padding-left: calc(50% + 40px);
-    padding-right: 0;
-    justify-content: flex-end;
+  flex-direction: row-reverse;
+  padding-left: calc(50% + 40px);
+  padding-right: 0;
+  justify-content: flex-end;
 }
 
-/* The dot on the timeline */
+/* ── Dot Marker ───────────────────────────── */
 .story-marker {
-    position: absolute;
-    left: 50%;
-    top: 28px;
-    transform: translateX(-50%);
-    z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .story-dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #e53935;
-    box-shadow:
-        0 0 0 4px #1a1a1a,
-        0 0 0 6px #e53935;
-    transition: transform 0.3s, box-shadow 0.3s;
-    /* === Technique 6: Pulsing dot animation === */
-    animation: dotPulse 2.5s ease-in-out infinite;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  box-shadow:
+    0 0 0 4px var(--color-bg-dark),
+    0 0 0 6px var(--color-accent);
+  animation: dotPulse 2.8s ease-in-out infinite;
+  transition: transform var(--ease-base);
 }
 
 @keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 0 4px #1a1a1a, 0 0 0 6px #e53935, 0 0 0 6px rgba(229, 57, 53, 0); }
-    50%      { box-shadow: 0 0 0 4px #1a1a1a, 0 0 0 6px #e53935, 0 0 16px 4px rgba(229, 57, 53, 0.3); }
+  0%, 100% {
+    box-shadow: 0 0 0 4px var(--color-bg-dark), 0 0 0 6px var(--color-accent), 0 0 0 6px rgba(229, 57, 53, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px var(--color-bg-dark), 0 0 0 6px var(--color-accent), 0 0 18px 4px rgba(229, 57, 53, 0.28);
+  }
 }
 
 .story-item:hover .story-dot {
-    transform: scale(1.3);
-    box-shadow:
-        0 0 0 4px #1a1a1a,
-        0 0 0 6px #e53935,
-        0 0 20px rgba(229, 57, 53, 0.4);
+  transform: scale(1.35);
 }
 
-/* The content card */
-/* === Technique 4: Depth — noise + inner shadow on cards === */
+/* ── Story Card ───────────────────────────── */
 .story-card {
-    background: #242424;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)" opacity="0.035"/%3E%3C/svg%3E');
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 380px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 4px 16px rgba(0,0,0,0.2);
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  background: var(--color-bg-medium);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  max-width: 380px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), var(--shadow-sm);
+  transition:
+    border-color var(--ease-base),
+    transform    var(--ease-spring),
+    box-shadow   var(--ease-base);
 }
 
 .story-item:hover .story-card {
-    border-color: #e53935;
-    transform: translateY(-4px);
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--color-accent-muted);
 }
 
 .story-year {
-    display: inline-block;
-    font-family: "Oswald", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #e53935;
-    margin-bottom: 12px;
-    padding: 4px 12px;
-    border: 1px solid rgba(229, 57, 53, 0.3);
-    border-radius: 4px;
-    background: rgba(229, 57, 53, 0.08);
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  margin-bottom: var(--sp-2);
+  padding: 3px 12px;
+  border: 1px solid rgba(229, 57, 53, 0.3);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-muted);
 }
 
 .story-text {
-    font-size: 15px;
-    color: #bbb;
-    line-height: 1.8;
-    margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted-light);
+  line-height: 1.85;
+  margin: 0;
 }
 
-/* --- Responsive --- */
+/* ── Responsive ───────────────────────────── */
 @media (max-width: 768px) {
-    .story-line {
-        left: 20px;
-    }
+  .story-section { padding: var(--section-padding-sm) 0; }
 
-    .story-marker {
-        left: 20px;
-    }
+  .story-line   { left: 20px; }
+  .story-marker { left: 20px; }
 
-    .story-item:nth-child(odd),
-    .story-item:nth-child(even) {
-        flex-direction: row;
-        padding-left: 60px;
-        padding-right: 0;
-        justify-content: flex-start;
-    }
+  .story-item:nth-child(odd),
+  .story-item:nth-child(even) {
+    flex-direction: row;
+    padding-left: 60px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
 
-    .story-card {
-        max-width: 100%;
-    }
-
-    .story-section {
-        padding: 60px 0;
-    }
+  .story-card { max-width: 100%; }
 }

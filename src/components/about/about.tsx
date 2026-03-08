@@ -1,38 +1,40 @@
 import "./about.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import cowImg from "../../assets/cow.png";
-import henImg from "../../assets/hen.png";
-import pigImg from "../../assets/pig.png";
+import cowImg  from "../../assets/cow.png";
+import henImg  from "../../assets/hen.png";
+import pigImg  from "../../assets/pig.png";
 import sheepImg from "../../assets/sheep.png";
 
 const CATEGORIES = [
     { label: "CHICKEN MEAT", img: henImg },
-    { label: "PORK MEAT", img: pigImg },
-    { label: "BEEF MEAT", img: cowImg },
-    { label: "SHEEP MEAT", img: sheepImg },
+    { label: "PORK MEAT",    img: pigImg },
+    { label: "BEEF MEAT",    img: cowImg },
+    { label: "SHEEP MEAT",   img: sheepImg },
 ];
 
 export default function AboutSection() {
     const ref = useScrollReveal();
 
     return (
-        <section className="about-section" ref={ref}>
+        <section className="about-section" id="about" ref={ref}>
             <div className="container about-container">
                 {/* Left Content */}
                 <div className="about-left reveal reveal--left">
-                    <h4 className="subtitle-script">About Us</h4>
+                    <span className="subtitle-script">About Us</span>
                     <h2 className="title-large">
                         Organic <br />
                         Premium <span className="highlight-red">Quality</span>
                     </h2>
-                    <button className="cta-button">MORE ABOUT</button>
                 </div>
 
-                {/* Right Content (Circles) */}
+                {/* Right Content — Category Circles */}
                 <div className="about-right">
                     {CATEGORIES.map((item, i) => (
-                        <div key={item.label} className={`category-item reveal reveal--d${i + 1}`}>
+                        <div
+                            key={item.label}
+                            className={`category-item reveal reveal--d${i + 1}`}
+                        >
                             <div className="category-circle-outer">
                                 <div className="category-circle-inner">
                                     <img

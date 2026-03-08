@@ -95,6 +95,7 @@ export default function WhyChooseSection() {
     return (
         <section
             className="choose-section"
+            id="what-we-offer"
             style={{ backgroundImage: `url(${chooseBg})` }}
             ref={ref}
         >

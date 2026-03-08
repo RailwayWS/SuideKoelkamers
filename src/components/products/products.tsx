@@ -38,7 +38,7 @@ export default function ProductsSection() {
     }, [paused, goNext]);
 
     return (
-        <section className="products-section" ref={sectionRef}>
+        <section className="products-section" id="products" ref={sectionRef}>
             <div className="container products-container">
                 {/* Header */}
                 <div className="section-header reveal">
