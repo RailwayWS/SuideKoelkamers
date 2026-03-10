@@ -3,6 +3,8 @@ import "./App.css";
 import sliderIcon from "./assets/slider_icon.png";
 import hero1 from "./assets/hero_background.png";
 import hero2 from "./assets/herobackground2.jpeg";
+import heroMobile1 from "./assets/carousel/braai.jpeg";
+import heroMobile2 from "./assets/carousel/salamie.jpeg";
 import Navbar from "./components/navbar/navbar";
 import AboutSection from "./components/about/about";
 import OurStorySection from "./components/ourStory/ourStory";
@@ -12,12 +14,13 @@ import CtaSection from "./components/cta/cta";
 import FaqSection from "./components/faq/faq";
 import ContactSection from "./components/contact/contact";
 
-const HERO_SLIDES = [hero1, hero2];
+const HERO_SLIDES_DESKTOP = [hero1, hero2];
+const HERO_SLIDES_MOBILE = [heroMobile1, heroMobile2];
 const HERO_SLOGANS = [
-    "Premium Cold Storage Solutions",
-    "Keeping Your Produce Fresh and Secure",
+    "Where customers become friends",
+    "Quality local meat for great times together",
 ];
-const SLIDE_DURATION = 10000;
+const SLIDE_DURATION = 5000;
 /** Time before the new slogan fades in (lets the bg transition settle first) */
 const SLOGAN_FADE_IN_DELAY = 700;
 /** Duration the slogan is invisible while text swaps (matches CSS transition) */
@@ -27,7 +30,10 @@ function App() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [displaySlogan, setDisplaySlogan] = useState(HERO_SLOGANS[0]);
     const [sloganVisible, setSloganVisible] = useState(true);
+    const [isMobileHero, setIsMobileHero] = useState(false);
     const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+    const heroSlides = isMobileHero ? HERO_SLIDES_MOBILE : HERO_SLIDES_DESKTOP;
 
     const clearTimers = () => {
         timerRefs.current.forEach(clearTimeout);
@@ -35,8 +41,25 @@ function App() {
     };
 
     const goToNext = useCallback(() => {
-        setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+        setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, [heroSlides.length]);
+
+    /* ── Mobile-only hero backgrounds ── */
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width: 768px)");
+
+        const apply = () => setIsMobileHero(mq.matches);
+        apply();
+
+        mq.addEventListener("change", apply);
+        return () => mq.removeEventListener("change", apply);
     }, []);
+
+    // If we switch between desktop/mobile slide arrays, clamp the current index
+    useEffect(() => {
+        setCurrentSlide((prev) => prev % heroSlides.length);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isMobileHero]);
 
     /* ── Slogan cross-fade whenever slide changes ── */
     useEffect(() => {
@@ -73,7 +96,7 @@ function App() {
 
             {/* Hero Section — Slideshow */}
             <header className="hero" id="home">
-                {HERO_SLIDES.map((src, i) => (
+                {heroSlides.map((src: string, i: number) => (
                     <div
                         key={i}
                         className={`hero-slide ${i === currentSlide ? "active" : ""}`}

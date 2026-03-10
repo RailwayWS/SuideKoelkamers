@@ -3,8 +3,16 @@
     position: relative;
     background-color: #1a1a1a;
     background-image:
-        radial-gradient(ellipse at 80% 20%, rgba(229, 57, 53, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 80%, rgba(229, 57, 53, 0.04) 0%, transparent 50%),
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(229, 57, 53, 0.06) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 20% 80%,
+            rgba(229, 57, 53, 0.04) 0%,
+            transparent 50%
+        ),
         linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
     padding: 100px 0;
     color: #fff;
@@ -19,7 +27,11 @@
     right: -80px;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(229, 57, 53, 0.12) 0%, transparent 70%);
+    background: radial-gradient(
+        circle,
+        rgba(229, 57, 53, 0.12) 0%,
+        transparent 70%
+    );
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
@@ -33,7 +45,11 @@
     left: -60px;
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, rgba(229, 57, 53, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+        circle,
+        rgba(229, 57, 53, 0.08) 0%,
+        transparent 70%
+    );
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
@@ -97,9 +113,9 @@
 
 /* === Technique 5: Opacity hierarchy on description === */
 .contact-desc {
-    font-size: 15px;
+    font-size: 22px;
     color: #aaa;
-    max-width: 520px;
+    max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
     opacity: 0.65;

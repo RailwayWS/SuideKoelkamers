@@ -11,6 +11,8 @@ import fireIcon from "../../assets/fire.png";
 import meatIcon from "../../assets/meat.png";
 import stampImg from "../../assets/stamp.png";
 
+import kouevleisImg from "../../assets/kouevleis.jpeg";
+
 type Feature = {
     title: string;
     shortDesc: string;
@@ -110,36 +112,51 @@ export default function WhyChooseSection() {
                 </div>
 
                 {/* Central Content */}
-                
+
                 {/* Featured Product Banner Moved from Products and Redesigned */}
                 <div className="featured-product reveal reveal--scale reveal--d1">
                     <div className="featured-content-left">
-                        <span className="featured-badge subtitle-script">Artisan Deli &amp; Cold Meats</span>
-                        <h3 className="featured-title">Our Signature Handmade Cold Meats</h3>
+                        <span className="featured-badge subtitle-script">
+                            Artisan Deli &amp; Cold Meats
+                        </span>
+                        <h3 className="featured-title">
+                            Our Signature Handmade Cold Meats
+                        </h3>
                         <p className="featured-text">
-                            Experience the authentic taste of tradition with our 100% in-house handmade cold meats. 
-                            Crafted locally from the finest quality cuts using time-honored traditional methods, 
-                            our artisanal preparation ensures a premium, rich flavor you simply won't find at standard butcheries. 
-                            Taste the true difference of passion and craftsmanship.
+                            Experience the authentic taste of tradition with our
+                            100% in-house handmade cold meats. Crafted locally
+                            from the finest quality cuts using time-honored
+                            traditional methods, our artisanal preparation
+                            ensures a premium, rich flavor you simply won't find
+                            at standard butcheries. Taste the true difference of
+                            passion and craftsmanship.
                         </p>
                     </div>
-                    
+
                     <div className="featured-image-right">
                         {/* Placeholder for charcuterie image */}
-                        <img 
-                           src={coldmeat} 
-                           alt="Handmade Cold Meats" 
-                           className="featured-charcuterie-img" 
+                        <img
+                            src={kouevleisImg ?? coldmeat}
+                            alt="Handmade Cold Meats"
+                            className="featured-charcuterie-img"
                         />
                         {/* Quality Stamp */}
-                        <img src={stampImg} alt="100% Handmade Local Quality" className="quality-seal" />
+                        <img
+                            src={stampImg}
+                            alt="100% Handmade Local Quality"
+                            className="quality-seal"
+                        />
                     </div>
                 </div>
 
                 {/* Feature Cards Grid */}
                 <div className="features-grid">
                     {FEATURES.map((feature, i) => (
-                        <FeatureCard key={feature.title} feature={feature} delay={i + 1} />
+                        <FeatureCard
+                            key={feature.title}
+                            feature={feature}
+                            delay={i + 1}
+                        />
                     ))}
                 </div>
             </div>
