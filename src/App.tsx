@@ -14,6 +14,7 @@ import ProductsSection from "./components/products/products";
 import CtaSection from "./components/cta/cta";
 import FaqSection from "./components/faq/faq";
 import ContactSection from "./components/contact/contact";
+import { hideAppLoader, preloadImagesWithin } from "./utils/preloadImages";
 
 // Desktop hero should stay static
 const HERO_SLIDES_DESKTOP = [hero1];
@@ -36,8 +37,39 @@ function App() {
     const [sloganVisible, setSloganVisible] = useState(false);
     const [isMobileHero, setIsMobileHero] = useState(false);
     const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+    const heroPreloadRef = useRef<HTMLElement | null>(null);
 
     const heroSlides = isMobileHero ? HERO_SLIDES_MOBILE : HERO_SLIDES_DESKTOP;
+
+    /* ── Strict preload: keep site hidden until Hero + About images are ready ── */
+    useEffect(() => {
+        let cancelled = false;
+
+        const run = async () => {
+            // Wait a tick so the initial render committed (About is mounted)
+            await new Promise((r) => requestAnimationFrame(() => r(null)));
+
+            const heroEl = heroPreloadRef.current;
+            const aboutEl = document.getElementById("about");
+
+            try {
+                // Collect all <img> currentSrc and computed background-image URLs
+                await preloadImagesWithin([heroEl, aboutEl], {
+                    includeBackgroundImages: true,
+                });
+
+                if (!cancelled) hideAppLoader();
+            } catch {
+                // Even if one image fails, don't lock the user behind the loader forever.
+                if (!cancelled) hideAppLoader();
+            }
+        };
+
+        run();
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
     const clearTimers = () => {
         timerRefs.current.forEach(clearTimeout);
@@ -108,7 +140,7 @@ function App() {
             <Navbar />
 
             {/* Hero Section — Slideshow */}
-            <header className="hero" id="home">
+            <header className="hero" id="home" ref={heroPreloadRef}>
                 {heroSlides.map((src: string, i: number) => (
                     <div
                         key={i}
