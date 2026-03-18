@@ -25,7 +25,8 @@
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center;
+    /* Prefer cropping the bottom rather than the top */
+    background-position: center 10%;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     z-index: 0;

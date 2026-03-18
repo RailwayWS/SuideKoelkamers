@@ -1,6 +1,6 @@
 import "./ourStory.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import titleShapeImg from "../../assets/title_shape.png";
+import titleShapeImg from "../../assets/icons/title_shape.png";
 
 const STORY_BLOCKS = [
     {
@@ -34,9 +34,7 @@ export default function OurStorySection() {
                 {/* Header */}
                 <div className="story-header reveal">
                     <span className="subtitle-script">Our Heritage</span>
-                    <h2 className="title-large">
-                        Our Story
-                    </h2>
+                    <h2 className="title-large">Our Story</h2>
                     <div className="scissors-separator">
                         <img src={titleShapeImg} alt="Section separator" />
                     </div>

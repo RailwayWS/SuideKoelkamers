@@ -2,16 +2,16 @@ import { useState } from "react";
 import "./whyChoose.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import chooseBg from "../../assets/choose_bg.jpg";
-import titleShapeImg from "../../assets/title_shape.png";
-import coldmeat from "../../assets/products/slag2.jpeg";
+import chooseBg from "../../assets/background/choose_bg.jpg";
+import titleShapeImg from "../../assets/icons/title_shape.png";
+import coldmeat from "../../assets/carousel/slag2.jpg";
 
-import butcheringIcon from "../../assets/butchering.png";
-import fireIcon from "../../assets/fire.png";
-import meatIcon from "../../assets/meat.png";
-import stampImg from "../../assets/stamp.png";
+import butcheringIcon from "../../assets/icons/butchering.png";
+import fireIcon from "../../assets/icons/fire.png";
+import meatIcon from "../../assets/icons/meat.png";
+import stampImg from "../../assets/icons/stamp.png";
 
-import kouevleisImg from "../../assets/kouevleis.jpeg";
+import kouevleisImg from "../../assets/carousel/lekker.jpg";
 
 type Feature = {
     title: string;

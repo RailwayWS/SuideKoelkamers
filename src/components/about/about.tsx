@@ -1,16 +1,16 @@
 import "./about.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import cowImg  from "../../assets/cow.png";
-import henImg  from "../../assets/hen.png";
-import pigImg  from "../../assets/pig.png";
-import sheepImg from "../../assets/sheep.png";
+import cowImg from "../../assets/icons/cow.png";
+import henImg from "../../assets/icons/hen.png";
+import pigImg from "../../assets/icons/pig.png";
+import sheepImg from "../../assets/icons/sheep.png";
 
 const CATEGORIES = [
-    { label: "CHICKEN MEAT", img: henImg },
-    { label: "PORK MEAT",    img: pigImg },
-    { label: "BEEF MEAT",    img: cowImg },
-    { label: "SHEEP MEAT",   img: sheepImg },
+    { label: "CHICKEN", img: henImg },
+    { label: "PORK", img: pigImg },
+    { label: "BEEF", img: cowImg },
+    { label: "MUTTON", img: sheepImg },
 ];
 
 export default function AboutSection() {
@@ -26,6 +26,17 @@ export default function AboutSection() {
                         Organic <br />
                         Premium <span className="highlight-red">Quality</span>
                     </h2>
+
+                    <button
+                        className="cta-button"
+                        type="button"
+                        onClick={() => {
+                            const el = document.getElementById("ethos");
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
+                        }}
+                    >
+                        More About Us
+                    </button>
                 </div>
 
                 {/* Right Content — Category Circles */}

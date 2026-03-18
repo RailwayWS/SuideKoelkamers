@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import "./App.css";
-import sliderIcon from "./assets/slider_icon.png";
-import hero1 from "./assets/hero_background.png";
-import hero2 from "./assets/herobackground2.jpeg";
-import heroMobile1 from "./assets/carousel/braai.jpeg";
-import heroMobile2 from "./assets/carousel/salamie.jpeg";
+import sliderIcon from "./assets/icons/slider_icon.png";
+import hero1 from "./assets/hero/hero_desktop.jpeg";
+// import heroMobileA from "./assets/hero/hero_mobile.jpeg";
+import heroMobile1 from "./assets/hero/hero_mobile1.jpg";
+import heroMobile2 from "./assets/hero/hero_mobile2.jpg";
+import heroMobile4 from "./assets/hero/hero_mobile4.jpg";
 import Navbar from "./components/navbar/navbar";
 import AboutSection from "./components/about/about";
 import OurStorySection from "./components/ourStory/ourStory";
@@ -14,13 +15,15 @@ import CtaSection from "./components/cta/cta";
 import FaqSection from "./components/faq/faq";
 import ContactSection from "./components/contact/contact";
 
-const HERO_SLIDES_DESKTOP = [hero1, hero2];
-const HERO_SLIDES_MOBILE = [heroMobile1, heroMobile2];
+// Desktop hero should stay static
+const HERO_SLIDES_DESKTOP = [hero1];
+// Mobile hero cycles through all images labeled "mobile"
+const HERO_SLIDES_MOBILE = [heroMobile1, heroMobile2, heroMobile4];
 const HERO_SLOGANS = [
     "Where customers become friends",
     "Quality local meat for great times together",
 ];
-const SLIDE_DURATION = 5000;
+const SLIDE_DURATION_MOBILE = 5000;
 /** Time before the new slogan fades in (lets the bg transition settle first) */
 const SLOGAN_FADE_IN_DELAY = 700;
 /** Duration the slogan is invisible while text swaps (matches CSS transition) */
@@ -29,7 +32,8 @@ const SLOGAN_TEXT_SWAP_MS = 500;
 function App() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [displaySlogan, setDisplaySlogan] = useState(HERO_SLOGANS[0]);
-    const [sloganVisible, setSloganVisible] = useState(true);
+    // Start hidden so the first slogan fades in with the rest of the hero text.
+    const [sloganVisible, setSloganVisible] = useState(false);
     const [isMobileHero, setIsMobileHero] = useState(false);
     const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
 
@@ -84,11 +88,20 @@ function App() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentSlide]);
 
+    // Initial slogan reveal: sync with the subtitle (hero-fade--d3 = 1.4s)
+    useEffect(() => {
+        const t = setTimeout(() => setSloganVisible(true), 1400);
+        return () => clearTimeout(t);
+    }, []);
+
     /* ── Auto-advance slideshow ── */
     useEffect(() => {
-        const timer = setInterval(goToNext, SLIDE_DURATION);
+        // Desktop background is static; only auto-advance on mobile.
+        if (!isMobileHero) return;
+
+        const timer = setInterval(goToNext, SLIDE_DURATION_MOBILE);
         return () => clearInterval(timer);
-    }, [goToNext]);
+    }, [goToNext, isMobileHero]);
 
     return (
         <div className="app-container">

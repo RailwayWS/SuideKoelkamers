@@ -5,8 +5,9 @@ type NavLink = { label: string; href: string };
 
 const NAV_LINKS: NavLink[] = [
     { label: "Home", href: "#home" },
-    { label: "What we Offer", href: "#what-we-offer" },
+    { label: "About", href: "#about" },
     { label: "Our Story", href: "#our-story" },
+    { label: "What we Offer", href: "#what-we-offer" },
     { label: "Products", href: "#products" },
 ];
 
@@ -14,6 +15,18 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [activeLink, setActiveLink] = useState("Home");
     const [menuOpen, setMenuOpen] = useState(false);
+
+    /* Lock page scroll while mobile menu is open */
+    useEffect(() => {
+        if (!menuOpen) return;
+
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = prevOverflow;
+        };
+    }, [menuOpen]);
 
     /* Scroll-to-glass effect */
     useEffect(() => {
@@ -26,6 +39,7 @@ export default function Navbar() {
     useEffect(() => {
         const sectionMap: Record<string, string> = {
             home: "Home",
+            about: "About",
             "what-we-offer": "What we Offer",
             "our-story": "Our Story",
             products: "Products",
@@ -41,7 +55,7 @@ export default function Navbar() {
                     }
                 }
             },
-            { threshold: 0.35 }
+            { threshold: 0.35 },
         );
 
         Object.keys(sectionMap).forEach((id) => {
@@ -68,28 +82,40 @@ export default function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
             const target = document.querySelector(link.href);
-            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+            if (target)
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };
 
     return (
-        <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`} role="navigation" aria-label="Main navigation">
+        <nav
+            className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}
+            role="navigation"
+            aria-label="Main navigation"
+        >
             <div className="container nav-container">
                 {/* Logo — just the text, no badge */}
                 <button
                     className="nav-logo"
-                    onClick={() => handleLinkClick({ label: "Home", href: "#home" })}
+                    onClick={() =>
+                        handleLinkClick({ label: "Home", href: "#home" })
+                    }
                     aria-label="Go to top"
                 >
                     <span className="nav-logo-name">Suide Koelkamers</span>
                 </button>
 
                 {/* Desktop Nav Links */}
-                <ul className={`nav-links ${menuOpen ? "nav-open" : ""}`} role="list">
+                <ul
+                    className={`nav-links ${menuOpen ? "nav-open" : ""}`}
+                    role="list"
+                >
                     {NAV_LINKS.map((link) => (
                         <li
                             key={link.label}
-                            className={activeLink === link.label ? "active" : ""}
+                            className={
+                                activeLink === link.label ? "active" : ""
+                            }
                             onClick={() => handleLinkClick(link)}
                             role="listitem"
                         >
@@ -102,7 +128,12 @@ export default function Navbar() {
                 <div className="nav-right">
                     <button
                         className={`nav-cta ${scrolled ? "nav-cta--visible" : ""}`}
-                        onClick={() => handleLinkClick({ label: "Contact", href: "#contact" })}
+                        onClick={() =>
+                            handleLinkClick({
+                                label: "Contact",
+                                href: "#contact",
+                            })
+                        }
                         aria-label="Contact us"
                     >
                         Contact Us

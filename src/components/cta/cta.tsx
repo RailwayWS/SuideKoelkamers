@@ -1,7 +1,7 @@
 import "./cta.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import sheep from "../../assets/sheepbackground.png";
+import sheep from "../../assets/background/sheepbackground.png";
 
 const ETHOS_STATEMENTS = [
     {
@@ -24,6 +24,7 @@ export default function CtaSection() {
     return (
         <section
             className="cta-section"
+            id="ethos"
             style={{ backgroundImage: `url(${sheep})` }}
             ref={ref}
         >
