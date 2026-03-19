@@ -121,27 +121,96 @@
     opacity: 0.65;
 }
 
-/* --- Body Layout --- */
-.contact-body {
+/* --- Branches Layout --- */
+.contact-branches {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: stretch;
+    gap: 32px;
+    align-items: start;
 }
 
-/* --- Left Column --- */
-.contact-left {
+.branch-card {
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 22px;
+    overflow: hidden;
+}
+
+.branch-card__header {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.branch-card__kicker {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+}
+
+.branch-card__title {
+    font-family: "Oswald", sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* Each branch must have a map grid (info + map together) */
+.branch-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
 /* --- Form --- */
+/* --- Bottom Row: Social + Form (centered) --- */
+.contact-bottom {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    flex: 1;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px 24px;
+}
+
+.contact-form__header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.contact-form__kicker {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+}
+
+.contact-form__title {
+    font-family: "Oswald", sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
 }
 
 .form-row {
@@ -196,7 +265,7 @@
 
 /* --- Social Card --- */
 .social-card {
-    background: #242424;
+    background: transparent;
     border: 1px solid #333;
     border-radius: 12px;
     padding: 20px 24px;
@@ -242,6 +311,10 @@
     gap: 12px;
 }
 
+.contact-bottom .social-links {
+    flex-wrap: wrap;
+}
+
 .social-link {
     display: flex;
     align-items: center;
@@ -274,18 +347,7 @@
     transform: translateX(4px);
 }
 
-/* --- Info Side --- */
-.contact-info-side {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.contact-info-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+/* (Old contact-info-side/contact-info-cards replaced by branch cards) */
 
 .info-card {
     display: flex;
@@ -369,9 +431,22 @@
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    .contact-body {
+    .contact-branches {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 22px;
+    }
+
+    .branch-card {
+        padding: 18px;
+    }
+
+    .contact-bottom {
+        margin-top: 30px;
+        max-width: 100%;
+    }
+
+    .contact-form {
+        padding: 18px;
     }
 
     .form-row {
