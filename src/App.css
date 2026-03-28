@@ -24,9 +24,6 @@
 .hero-slide {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    /* Prefer cropping the bottom rather than the top */
-    background-position: center 10%;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     z-index: 0;
@@ -35,6 +32,16 @@
 .hero-slide.active {
     opacity: 1;
     z-index: 1;
+}
+
+/* The <img> inside each slide covers the viewport like the old background-image */
+.hero-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Prefer cropping the bottom rather than the top */
+    object-position: center 10%;
+    display: block;
 }
 
 /* Gradient overlay for depth & legibility */

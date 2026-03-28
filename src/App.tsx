@@ -1,25 +1,31 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
 import "./App.css";
 import sliderIcon from "./assets/icons/slider_icon.png";
-import hero1 from "./assets/hero/hero_desktop.jpeg";
-// import heroMobileA from "./assets/hero/hero_mobile.jpeg";
-import heroMobile1 from "./assets/hero/hero_mobile1.jpg";
-import heroMobile2 from "./assets/hero/hero_mobile2.jpg";
-import heroMobile4 from "./assets/hero/hero_mobile4.jpg";
+
+/* ── Hero images (WebP compressed) ──────────────────────────────────────── */
+import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
+import heroMobile1Webp from "./assets/hero/hero_mobile1.webp";
+import heroMobile2Webp from "./assets/hero/hero_mobile2.webp";
+import heroMobile4Webp from "./assets/hero/hero_mobile4.webp";
+
+/* ── Above-fold components (eagerly loaded) ─────────────────────────────── */
 import Navbar from "./components/navbar/navbar";
 import AboutSection from "./components/about/about";
-import OurStorySection from "./components/ourStory/ourStory";
-import WhyChooseSection from "./components/whyChoose/whyChoose";
-import ProductsSection from "./components/products/products";
-import CtaSection from "./components/cta/cta";
-import FaqSection from "./components/faq/faq";
-import ContactSection from "./components/contact/contact";
+
+/* ── Below-fold components (code-split) ─────────────────────────────────── */
+const OurStorySection = lazy(() => import("./components/ourStory/ourStory"));
+const WhyChooseSection = lazy(() => import("./components/whyChoose/whyChoose"));
+const ProductsSection = lazy(() => import("./components/products/products"));
+const CtaSection = lazy(() => import("./components/cta/cta"));
+const FaqSection = lazy(() => import("./components/faq/faq"));
+const ContactSection = lazy(() => import("./components/contact/contact"));
+
 import { hideAppLoader, preloadImagesWithin, waitForFullLoad } from "./utils/preloadImages";
 
 // Desktop hero should stay static
-const HERO_SLIDES_DESKTOP = [hero1];
+const HERO_SLIDES_DESKTOP = [heroDesktopWebp];
 // Mobile hero cycles through all images labeled "mobile"
-const HERO_SLIDES_MOBILE = [heroMobile1, heroMobile2, heroMobile4];
+const HERO_SLIDES_MOBILE = [heroMobile1Webp, heroMobile2Webp, heroMobile4Webp];
 const HERO_SLOGANS = [
     "Where customers become friends",
     "Quality local meat for great times together",
@@ -150,8 +156,16 @@ function App() {
                     <div
                         key={i}
                         className={`hero-slide ${i === currentSlide ? "active" : ""}`}
-                        style={{ backgroundImage: `url(${src})` }}
-                    />
+                    >
+                        <img
+                            src={src}
+                            alt=""
+                            className="hero-slide-img"
+                            draggable={false}
+                            fetchPriority={i === 0 ? "high" : "low"}
+                            decoding={i === 0 ? "sync" : "async"}
+                        />
+                    </div>
                 ))}
 
                 <div className="hero-overlay" />
@@ -163,6 +177,8 @@ function App() {
                                 src={sliderIcon}
                                 alt="Butcher Icon"
                                 className="slider-icon"
+                                width={80}
+                                height={80}
                             />
                         </div>
 
@@ -203,12 +219,14 @@ function App() {
             </header>
 
             <AboutSection />
-            <OurStorySection />
-            <WhyChooseSection />
-            <ProductsSection />
-            <CtaSection />
-            <FaqSection />
-            <ContactSection />
+            <Suspense fallback={null}>
+                <OurStorySection />
+                <WhyChooseSection />
+                <ProductsSection />
+                <CtaSection />
+                <FaqSection />
+                <ContactSection />
+            </Suspense>
         </div>
     );
 }

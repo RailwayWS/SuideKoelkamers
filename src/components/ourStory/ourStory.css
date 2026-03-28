@@ -89,17 +89,27 @@
   box-shadow:
     0 0 0 4px var(--color-bg-dark),
     0 0 0 6px var(--color-accent);
-  animation: dotPulse 2.8s ease-in-out infinite;
   transition: transform var(--ease-base);
+  position: relative;
+}
+
+/* GPU-composited pulse ring — uses only transform + opacity (no box-shadow animation) */
+.story-dot::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  transform: scale(0.8);
+  animation: dotPulse 2.8s ease-in-out infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
 @keyframes dotPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 4px var(--color-bg-dark), 0 0 0 6px var(--color-accent), 0 0 0 6px rgba(229, 57, 53, 0);
-  }
-  50% {
-    box-shadow: 0 0 0 4px var(--color-bg-dark), 0 0 0 6px var(--color-accent), 0 0 18px 4px rgba(229, 57, 53, 0.28);
-  }
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50%      { opacity: 0.45; transform: scale(1.5); }
 }
 
 .story-item:hover .story-dot {

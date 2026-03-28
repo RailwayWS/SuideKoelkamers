@@ -1,7 +1,7 @@
 import "./cta.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import sheep from "../../assets/background/sheepbackground.png";
+import sheep from "../../assets/background/sheepbackground.webp";
 
 const ETHOS_STATEMENTS = [
     {

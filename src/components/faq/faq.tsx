@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./faq.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import faqBg from "../../assets/background/faq_bg.jpg";
+import faqBg from "../../assets/background/faq_bg.webp";
 
 const IconChevron = ({ isOpen }: { isOpen: boolean }) => (
     <svg

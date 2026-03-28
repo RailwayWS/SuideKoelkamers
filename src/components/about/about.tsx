@@ -52,6 +52,8 @@ export default function AboutSection() {
                                         src={item.img}
                                         alt={item.label}
                                         className="category-icon"
+                                        width={64}
+                                        height={64}
                                     />
                                 </div>
                             </div>

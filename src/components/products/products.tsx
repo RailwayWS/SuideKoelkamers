@@ -4,20 +4,20 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import titleShapeImg from "../../assets/icons/title_shape.png";
 
-// import img1 from "../../assets/carousel/boud.jpg";
-import img2 from "../../assets/carousel/boud2.jpg";
-import img3 from "../../assets/carousel/braai.jpg";
-import img4 from "../../assets/carousel/brood.jpeg";
-// import img5 from "../../assets/carousel/chips.jpg";
-// import img6 from "../../assets/carousel/lekker.jpg";
-import img7 from "../../assets/carousel/mense.jpg";
-// import img8 from "../../assets/carousel/namma.jpg";
-import img9 from "../../assets/carousel/namma2.jpg";
-// import img10 from "../../assets/carousel/salamie.jpg";
-import img11 from "../../assets/carousel/skinkbord.jpg";
-import img12 from "../../assets/carousel/skinkbord2.jpg";
-import img13 from "../../assets/carousel/slag.jpg";
-import img14 from "../../assets/carousel/slag2.jpg";
+// import img1 from "../../assets/carousel/boud.webp";
+import img2 from "../../assets/carousel/boud2.webp";
+import img3 from "../../assets/carousel/braai.webp";
+import img4 from "../../assets/carousel/brood.webp";
+// import img5 from "../../assets/carousel/chips.webp";
+// import img6 from "../../assets/carousel/lekker.webp";
+import img7 from "../../assets/carousel/mense.webp";
+// import img8 from "../../assets/carousel/namma.webp";
+import img9 from "../../assets/carousel/namma2.webp";
+// import img10 from "../../assets/carousel/salamie.webp";
+import img11 from "../../assets/carousel/skinkbord.webp";
+import img12 from "../../assets/carousel/skinkbord2.webp";
+import img13 from "../../assets/carousel/slag.webp";
+import img14 from "../../assets/carousel/slag2.webp";
 
 const SLIDES = [img2, img3, img4, img7, img9, img11, img12, img13, img14];
 
