@@ -36,7 +36,7 @@ export default function OurStorySection() {
                     <span className="subtitle-script">Our Heritage</span>
                     <h2 className="title-large">Our Story</h2>
                     <div className="scissors-separator">
-                        <img src={titleShapeImg} alt="Section separator" />
+                        <img src={titleShapeImg} alt="Section separator" loading="lazy" />
                     </div>
                 </div>
 

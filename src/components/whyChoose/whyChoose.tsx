@@ -69,6 +69,7 @@ const FeatureCard = ({ feature }: { feature: Feature; delay: number }) => {
                             src={feature.icon}
                             alt={feature.iconAlt}
                             className="feature-icon"
+                            loading="lazy"
                         />
                     </div>
                     <h3 className="card-title">{feature.title}</h3>
@@ -107,7 +108,7 @@ export default function WhyChooseSection() {
                     <span className="subtitle-script">What we Offer</span>
                     <h2 className="title-large">Why Choose Us?</h2>
                     <div className="scissors-separator">
-                        <img src={titleShapeImg} alt="Section separator" />
+                        <img src={titleShapeImg} alt="Section separator" loading="lazy" />
                     </div>
                 </div>
 
@@ -139,12 +140,14 @@ export default function WhyChooseSection() {
                             src={kouevleisImg ?? coldmeat}
                             alt="Handmade Cold Meats"
                             className="featured-charcuterie-img"
+                            loading="lazy"
                         />
                         {/* Quality Stamp */}
                         <img
                             src={stampImg}
                             alt="100% Handmade Local Quality"
                             className="quality-seal"
+                            loading="lazy"
                         />
                     </div>
                 </div>

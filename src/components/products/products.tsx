@@ -77,7 +77,7 @@ export default function ProductsSection() {
                     <span className="subtitle-script">Premium Selection</span>
                     <h2 className="title-large">Our Organic Products</h2>
                     <div className="scissors-separator">
-                        <img src={titleShapeImg} alt="Section separator" />
+                        <img src={titleShapeImg} alt="Section separator" loading="lazy" />
                     </div>
                 </div>
 
@@ -125,6 +125,7 @@ export default function ProductsSection() {
                                             src={src}
                                             alt={`Product ${i + 1}`}
                                             className="carousel-img"
+                                            loading="lazy"
                                             draggable={false}
                                         />
                                         <div className="carousel-overlay"></div>

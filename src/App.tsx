@@ -14,7 +14,7 @@ import ProductsSection from "./components/products/products";
 import CtaSection from "./components/cta/cta";
 import FaqSection from "./components/faq/faq";
 import ContactSection from "./components/contact/contact";
-import { hideAppLoader, preloadImagesWithin } from "./utils/preloadImages";
+import { hideAppLoader, preloadImagesWithin, waitForFullLoad } from "./utils/preloadImages";
 
 // Desktop hero should stay static
 const HERO_SLIDES_DESKTOP = [hero1];
@@ -41,28 +41,33 @@ function App() {
 
     const heroSlides = isMobileHero ? HERO_SLIDES_MOBILE : HERO_SLIDES_DESKTOP;
 
-    /* ── Strict preload: keep site hidden until Hero + About images are ready ── */
+    /* ── Strict preload: keep site hidden until heavy assets are ready ──────── */
     useEffect(() => {
         let cancelled = false;
 
         const run = async () => {
-            // Wait a tick so the initial render committed (About is mounted)
+            // Wait a tick so the initial render committed (About section is mounted)
             await new Promise((r) => requestAnimationFrame(() => r(null)));
 
             const heroEl = heroPreloadRef.current;
             const aboutEl = document.getElementById("about");
 
             try {
-                // Collect all <img> currentSrc and computed background-image URLs
-                await preloadImagesWithin([heroEl, aboutEl], {
-                    includeBackgroundImages: true,
-                });
-
-                if (!cancelled) hideAppLoader();
+                // Wait for BOTH above-fold images AND full page load (fonts,
+                // stylesheets, etc.).  waitForFullLoad includes an 8 s fallback
+                // so we never trap the user if a third-party resource stalls.
+                await Promise.all([
+                    preloadImagesWithin([heroEl, aboutEl], {
+                        includeBackgroundImages: true,
+                    }),
+                    waitForFullLoad(),
+                ]);
             } catch {
-                // Even if one image fails, don't lock the user behind the loader forever.
-                if (!cancelled) hideAppLoader();
+                // Swallow — the fallback timeout in waitForFullLoad guarantees
+                // we won't stay stuck.
             }
+
+            if (!cancelled) hideAppLoader();
         };
 
         run();

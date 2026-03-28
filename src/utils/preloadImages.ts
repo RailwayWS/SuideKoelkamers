@@ -74,6 +74,39 @@ export async function preloadImagesWithin(
     await Promise.all(Array.from(urls).map((u) => preloadUrl(u)));
 }
 
+/** Maximum time (ms) to keep the loader visible before forcing it away. */
+const LOADER_FALLBACK_MS = 8_000;
+
+/**
+ * Returns a `Promise` that resolves once the browser's `load` event has fired
+ * (meaning all sub-resources — images, stylesheets, fonts — have finished
+ * loading) **or** after {@link LOADER_FALLBACK_MS} ms, whichever comes first.
+ *
+ * This prevents the loader from hanging indefinitely if a third-party font or
+ * analytics script stalls.
+ */
+export function waitForFullLoad(): Promise<void> {
+    return new Promise((resolve) => {
+        if (document.readyState === "complete") {
+            resolve();
+            return;
+        }
+
+        let settled = false;
+
+        const done = () => {
+            if (settled) return;
+            settled = true;
+            window.removeEventListener("load", done);
+            clearTimeout(fallback);
+            resolve();
+        };
+
+        window.addEventListener("load", done, { once: true });
+        const fallback = window.setTimeout(done, LOADER_FALLBACK_MS);
+    });
+}
+
 /**
  * Fades out and removes the initial loader overlay inserted in index.html.
  */
