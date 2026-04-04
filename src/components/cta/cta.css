@@ -16,6 +16,13 @@
     text-align: center;
 }
 
+/* Safari / iOS Parallax fix: disable fixed attachment to prevent extreme zooming */
+@supports (-webkit-touch-callout: none) {
+    .cta-section {
+        background-attachment: scroll;
+    }
+}
+
 /* === Technique 4: Noise on CTA overlay === */
 .cta-overlay {
     position: absolute;
@@ -81,7 +88,10 @@
     padding: 35px 28px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+    transition:
+        border-color 0.3s,
+        transform 0.3s,
+        background 0.3s;
     position: relative;
     overflow: hidden;
 }
