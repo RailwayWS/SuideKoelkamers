@@ -1,4 +1,11 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
+import {
+    useState,
+    useEffect,
+    useCallback,
+    useRef,
+    lazy,
+    Suspense,
+} from "react";
 import "./App.css";
 import sliderIcon from "./assets/icons/slider_icon.png";
 
@@ -20,7 +27,11 @@ const CtaSection = lazy(() => import("./components/cta/cta"));
 const FaqSection = lazy(() => import("./components/faq/faq"));
 const ContactSection = lazy(() => import("./components/contact/contact"));
 
-import { hideAppLoader, preloadImagesWithin, waitForFullLoad } from "./utils/preloadImages";
+import {
+    hideAppLoader,
+    preloadImagesWithin,
+    waitForFullLoad,
+} from "./utils/preloadImages";
 
 // Desktop hero should stay static
 const HERO_SLIDES_DESKTOP = [heroDesktopWebp];
@@ -44,6 +55,7 @@ function App() {
     const [isMobileHero, setIsMobileHero] = useState(false);
     const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
     const heroPreloadRef = useRef<HTMLElement | null>(null);
+    const isInitialMount = useRef(true);
 
     const heroSlides = isMobileHero ? HERO_SLIDES_MOBILE : HERO_SLIDES_DESKTOP;
 
@@ -111,31 +123,37 @@ function App() {
     /* ── Slogan cross-fade whenever slide changes ── */
     useEffect(() => {
         clearTimers();
-
-        // Step 1 — fade current slogan out immediately
         setSloganVisible(false);
 
-        // Step 2 — swap text while invisible
-        const t1 = setTimeout(() => {
-            setDisplaySlogan(HERO_SLOGANS[currentSlide % HERO_SLOGANS.length]);
-        }, SLOGAN_TEXT_SWAP_MS);
+        if (isInitialMount.current) {
+            // --- INITIAL LOAD ---
+            // Fades in instantly with the rest of the text, no more 1200ms delay.
+            const t1 = setTimeout(() => {
+                setSloganVisible(true);
+            }, 100);
 
-        // Step 3 — fade new slogan in once bg has settled
-        const t2 = setTimeout(() => {
-            setSloganVisible(true);
-        }, SLOGAN_FADE_IN_DELAY);
+            timerRefs.current = [t1];
+            isInitialMount.current = false;
+        } else {
+            // --- MOBILE SLIDE CYCLING ---
+            // Step 1: swap text while invisible
+            const t1 = setTimeout(() => {
+                setDisplaySlogan(
+                    HERO_SLOGANS[currentSlide % HERO_SLOGANS.length],
+                );
+            }, SLOGAN_TEXT_SWAP_MS);
 
-        timerRefs.current = [t1, t2];
+            // Step 2: fade new slogan in once background has settled
+            const t2 = setTimeout(() => {
+                setSloganVisible(true);
+            }, SLOGAN_FADE_IN_DELAY);
+
+            timerRefs.current = [t1, t2];
+        }
 
         return clearTimers;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentSlide]);
-
-    // Initial slogan reveal: sync with the subtitle (hero-fade--d3 = 1.4s)
-    useEffect(() => {
-        const t = setTimeout(() => setSloganVisible(true), 1400);
-        return () => clearTimeout(t);
-    }, []);
 
     /* ── Auto-advance slideshow ── */
     useEffect(() => {

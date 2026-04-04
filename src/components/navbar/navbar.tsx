@@ -28,42 +28,47 @@ export default function Navbar() {
         };
     }, [menuOpen]);
 
-    /* Scroll-to-glass effect */
+    /* Active section detection & glass effect */
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 80);
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        const sections = [
+            { id: "home", label: "Home" },
+            { id: "about", label: "About" },
+            { id: "our-story", label: "Our Story" },
+            { id: "what-we-offer", label: "What we Offer" },
+            { id: "products", label: "Products" },
+            { id: "ethos", label: "Ethos" },
+            { id: "faq", label: "FAQ" },
+            { id: "contact", label: "Contact" },
+        ];
 
-    /* Active section detection */
-    useEffect(() => {
-        const sectionMap: Record<string, string> = {
-            home: "Home",
-            about: "About",
-            "what-we-offer": "What we Offer",
-            "our-story": "Our Story",
-            products: "Products",
-            contact: "Contact",
-        };
+        const handleScroll = () => {
+            // Glass effect
+            setScrolled(window.scrollY > 80);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                for (const entry of entries) {
-                    if (entry.isIntersecting) {
-                        const label = sectionMap[entry.target.id];
-                        if (label) setActiveLink(label);
+            // Active section detection
+            let currentActive = "Home";
+
+            // Loop through sections sequentially and update active layer
+            for (const section of sections) {
+                const el = document.getElementById(section.id);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    // If the section crosses into the upper 40% of the screen, mark it active
+                    if (
+                        rect.top <= window.innerHeight * 0.4 &&
+                        rect.bottom > 0
+                    ) {
+                        currentActive = section.label;
                     }
                 }
-            },
-            { threshold: 0.35 },
-        );
+            }
+            setActiveLink(currentActive);
+        };
 
-        Object.keys(sectionMap).forEach((id) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll(); // Trigger initial check on load
 
-        return () => observer.disconnect();
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     /* Close menu on resize to desktop */
