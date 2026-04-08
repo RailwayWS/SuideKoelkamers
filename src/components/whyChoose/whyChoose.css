@@ -33,7 +33,7 @@
 }
 
 .choose-header {
-    margin-bottom: 48px;
+    margin-bottom: 32px; /* Tightened up slightly to flow into the intro block */
 }
 
 .scissors-separator {
@@ -43,104 +43,55 @@
     display: inline-block;
 }
 
-/* ── Featured Product Banner ──────────────── */
-.featured-product {
-    background: #1a1a1a;
-    border-radius: 24px;
+/* ── Modern Choose Intro Block ──────────────────────── */
+.choose-intro {
     margin: 0 auto 64px auto;
-    max-width: 1000px;
-    width: 100%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: stretch;
-    overflow: hidden;
-    position: relative;
-}
-
-.featured-product::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)" opacity="0.04"/%3E%3C/svg%3E');
-    pointer-events: none;
-    z-index: 1;
-}
-
-.featured-content-left {
-    flex: 0 0 58%;
-    padding: 52px 48px;
+    text-align: center;
+    max-width: 780px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    position: relative;
-    z-index: 2;
+    align-items: center;
 }
 
-.featured-badge.subtitle-script {
+.choose-intro-badge {
     font-size: 28px;
-    color: #e63946; /* Replace with your var(--color-accent) */
-    margin-bottom: 16px;
-    text-transform: none;
-    letter-spacing: normal;
+    color: var(--color-accent, #e63946);
+    margin-bottom: 12px;
+    display: block;
 }
 
-.featured-title {
-    font-family: inherit;
+.choose-intro-title {
+    font-family: inherit; /* Use your clean sans-serif or strong serif */
     font-size: 36px;
-    font-weight: 700;
-    line-height: 1.15;
-    color: #fdfbf7;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1a1a1a;
     margin-bottom: 24px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-.featured-text {
-    font-size: 15px;
+.choose-intro-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent, #e63946);
+    margin: 0 auto 24px auto;
+    border-radius: 2px;
+}
+
+.choose-intro-text {
+    font-size: 16px;
     line-height: 1.8;
-    color: #a3a3a3;
+    color: #555555;
     margin: 0;
-}
-
-.featured-image-right {
-    flex: 0 0 42%;
-    position: relative;
-    overflow: hidden;
-}
-
-.featured-charcuterie-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.9) saturate(1.1);
-    transition: transform 0.8s ease;
-}
-
-.featured-product:hover .featured-charcuterie-img {
-    transform: scale(1.04);
-}
-
-.quality-seal {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 110px;
-    height: 110px;
-    object-fit: contain;
-    z-index: 10;
-    transform: rotate(12deg);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    font-weight: 400;
 }
 
 /* === Feature Cards Grid (4 Columns) === */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 35px;
     width: 100%;
 }
 
@@ -187,6 +138,8 @@
     backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+    /* Soft glow outline effect */
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .card-front {
@@ -201,10 +154,10 @@
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(30, 34, 28, 0) 30%,
-        rgba(30, 34, 28, 0.5) 55%,
-        rgba(30, 34, 28, 0.95) 85%,
-        rgba(30, 34, 28, 1) 100%
+        rgba(26, 26, 26, 0.1) 0%,
+        rgba(26, 26, 26, 0.6) 45%,
+        rgba(26, 26, 26, 0.95) 85%,
+        #1a1a1a 100%
     );
     z-index: 1;
 }
@@ -213,9 +166,9 @@
 .card-gradient-overlay--dark {
     background: linear-gradient(
         to bottom,
-        rgba(30, 34, 28, 0.4) 0%,
-        rgba(30, 34, 28, 0.9) 40%,
-        rgba(30, 34, 28, 1) 100%
+        rgba(26, 26, 26, 0.8) 0%,
+        #1a1a1a 30%,
+        #1a1a1a 100%
     );
 }
 
@@ -241,18 +194,18 @@
 
 .card-title {
     font-family: inherit; /* Use a clean sans-serif */
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     color: #ffffff;
     text-align: left;
     margin: 0 0 10px 0;
     line-height: 1.2;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.2px;
 }
 
 .card-desc {
-    font-size: 14.5px;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    color: #d1d5db;
     line-height: 1.5;
     margin: 0;
     text-align: left;
@@ -261,8 +214,9 @@
 
 /* Ensure back card text fits well if it's long */
 .card-back .card-desc {
-    font-size: 13.5px;
+    font-size: 13px;
     line-height: 1.6;
+    color: #e5e7eb;
 }
 
 /* ── Pill Button ──────────────── */
@@ -270,9 +224,9 @@
     background-color: #ffffff;
     color: #000000;
     font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 20px;
     border-radius: 40px;
     border: none;
     cursor: pointer;
@@ -284,7 +238,7 @@
 }
 
 .card-pill-btn:hover {
-    background-color: #f0f0f0;
+    background-color: #f3f4f6;
     transform: scale(0.98);
 }
 
@@ -313,30 +267,17 @@
     }
 }
 
-@media (max-width: 900px) {
-    .featured-product {
-        flex-direction: column;
-    }
-
-    .featured-content-left {
-        flex: 1 1 100%;
-        padding: 40px 32px;
-        text-align: center;
-    }
-
-    .featured-image-right {
-        flex: 1 1 100%;
-        min-height: 300px;
-    }
-
-    .featured-charcuterie-img {
-        position: absolute;
-    }
-}
-
 @media (max-width: 768px) {
     .choose-section {
         padding: 60px 0 80px;
+    }
+
+    .choose-intro {
+        margin-bottom: 48px;
+    }
+
+    .choose-intro-title {
+        font-size: 28px;
     }
 
     .features-grid {

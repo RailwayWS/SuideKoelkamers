@@ -11,6 +11,8 @@ import sliderIcon from "./assets/icons/slider_icon.png";
 
 /* ── Hero images (WebP compressed) ──────────────────────────────────────── */
 import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
+import heroDesktop2Webp from "./assets/hero/heroNew3.jpeg";
+import heroDesktop3Webp from "./assets/hero/heroNew2.jpeg";
 import heroMobile2Webp from "./assets/hero/hero_mobile2.webp";
 import salamieWebp from "./assets/hero/salamie.webp";
 
@@ -34,8 +36,12 @@ import {
     waitForFullLoad,
 } from "./utils/preloadImages";
 
-// Desktop hero should stay static
-const HERO_SLIDES_DESKTOP = [heroDesktopWebp];
+// Desktop hero should cycle through 3 images just like mobile
+const HERO_SLIDES_DESKTOP = [
+    heroDesktopWebp,
+    heroDesktop2Webp,
+    heroDesktop3Webp,
+];
 // Mobile hero cycles through all images labeled "mobile" (+ the team + the salamis)
 const HERO_SLIDES_MOBILE = [salamieWebp, heroDesktopWebp, heroMobile2Webp];
 const HERO_SLOGANS = [
@@ -159,12 +165,9 @@ function App() {
 
     /* ── Auto-advance slideshow ── */
     useEffect(() => {
-        // Desktop background is static; only auto-advance on mobile.
-        if (!isMobileHero) return;
-
         const timer = setInterval(goToNext, SLIDE_DURATION_MOBILE);
         return () => clearInterval(timer);
-    }, [goToNext, isMobileHero]);
+    }, [goToNext]);
 
     return (
         <div className="app-container">
@@ -181,6 +184,13 @@ function App() {
                             src={src}
                             alt=""
                             className={`hero-slide-img ${src === heroDesktopWebp && isMobileHero ? "hero-slide-img--contain" : ""}`}
+                            style={{
+                                objectPosition:
+                                    src === heroDesktop2Webp ||
+                                    src === heroDesktop3Webp
+                                        ? "center"
+                                        : undefined,
+                            }}
                             draggable={false}
                             fetchPriority={i === 0 ? "high" : "low"}
                             decoding={i === 0 ? "sync" : "async"}

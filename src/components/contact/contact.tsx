@@ -5,26 +5,33 @@ import koelkamersLogo from "../../assets/logos/koelkamers-logo-1.png";
 import vleisLogo from "../../assets/logos/vleis-logo-1.png";
 
 export default function ContactSection() {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-    });
-    const [submitted, setSubmitted] = useState(false);
+    const [result, setResult] = useState("");
     const ref = useScrollReveal();
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    ) => {
-        setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    };
+    const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formElement = event.currentTarget;
+        const formData = new FormData(formElement);
+        formData.append("access_key", "212cfce5-ca17-4bd4-ac0f-ef0d4e205a56");
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 4000);
-        setForm({ name: "", email: "", phone: "", message: "" });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                setResult("Message Sent ✓");
+                formElement.reset();
+                setTimeout(() => setResult(""), 4000);
+            } else {
+                setResult("Error Sending Message");
+            }
+        } catch (error) {
+            setResult("Failed to Send Message");
+        }
     };
 
     return (
@@ -261,7 +268,7 @@ export default function ContactSection() {
 
                     <form
                         className="contact-form reveal reveal--d4"
-                        onSubmit={handleSubmit}
+                        onSubmit={onSubmit}
                     >
                         <div className="contact-form__header">
                             <span className="contact-form__kicker">
@@ -274,48 +281,34 @@ export default function ContactSection() {
                                 type="text"
                                 name="name"
                                 placeholder="Your Name"
-                                value={form.name}
-                                onChange={handleChange}
                                 required
                                 className="form-input"
                             />
                         </div>
-                        <div className="form-row">
-                            <div className="form-group">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email Address"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    required
-                                    className="form-input"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    placeholder="Phone Number"
-                                    value={form.phone}
-                                    onChange={handleChange}
-                                    className="form-input"
-                                />
-                            </div>
+                        <div className="form-group">
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email Address"
+                                required
+                                className="form-input"
+                            />
                         </div>
                         <div className="form-group form-group--grow">
                             <textarea
                                 name="message"
                                 placeholder="Your Message"
-                                value={form.message}
-                                onChange={handleChange}
                                 required
                                 rows={8}
                                 className="form-input form-textarea"
                             />
                         </div>
-                        <button type="submit" className="contact-submit">
-                            {submitted ? "Message Sent ✓" : "Send Message"}
+                        <button
+                            type="submit"
+                            className="contact-submit"
+                            disabled={result === "Sending...."}
+                        >
+                            {result || "Send Message"}
                         </button>
                     </form>
                 </div>

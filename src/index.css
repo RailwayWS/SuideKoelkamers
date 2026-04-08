@@ -131,6 +131,30 @@ body {
 
 .app-loader__inner {
     width: min(200px, calc(100vw - 96px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.app-loader__logo {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+    animation: loaderLogoFade 1200ms ease-in-out infinite alternate;
+}
+
+@keyframes loaderLogoFade {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .app-loader__bar {

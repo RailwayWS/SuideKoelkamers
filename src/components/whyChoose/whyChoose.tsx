@@ -6,12 +6,10 @@ import chooseBg from "../../assets/background/choose_bg.webp";
 import titleShapeImg from "../../assets/icons/title_shape.png";
 
 // You may need to create/update these image paths in your assets folder
-import kouevleisImg from "../../assets/carousel/lekker.webp";
 import salamiImg from "../../assets/carousel/salamie.webp";
-import carcassImg from "../../assets/carousel/salamie.webp"; // Added based on requirements
-import biltongImg from "../../assets/carousel/lekker.webp"; // Added based on requirements
+import carcassImg from "../../assets/carousel/karkas.jpeg"; // Added based on requirements
+import biltongImg from "../../assets/carousel/skinkbord2.webp"; // Added based on requirements
 import roosterbroodImg from "../../assets/carousel/braai.webp"; // Using braai as roosterbrood placeholder
-import stampImg from "../../assets/icons/stamp.png";
 
 type Feature = {
     title: string;
@@ -46,7 +44,7 @@ const FEATURES: Feature[] = [
         title: "Daily Deli",
         shortDesc: "Our Deli offers daily homemade meals and takeaways.",
         longDesc:
-            "To make life easier, our deli prepares homemade dishes every day. Enjoy our tasty burgers, pizzas, braai, russians, and real hand-cut chips, perfect for a quick snack or family dinner.",
+            "To make life easier in the afternoons, our deli prepares homemade dishes every day. Come enjoy our tasty burgers, pizzas, braai, Russians, and real hand-cut chips.",
         img: roosterbroodImg,
     },
 ];
@@ -117,48 +115,12 @@ export default function WhyChooseSection() {
             <div className="container choose-container">
                 {/* Header */}
                 <div className="choose-header reveal">
-                    <span className="subtitle-script">What we Offer</span>
-                    <h2 className="title-large">Why Choose Us?</h2>
+                    <span className="subtitle-script">Why Choose Us?</span>
+                    <h2 className="title-large">What We Offer</h2>
                     <div className="scissors-separator">
                         <img
                             src={titleShapeImg}
                             alt="Section separator"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
-
-                {/* Featured Product Banner */}
-                <div className="featured-product reveal reveal--scale reveal--d1">
-                    <div className="featured-content-left">
-                        <span className="featured-badge subtitle-script">
-                            Artisan Deli &amp; Cold Meats
-                        </span>
-                        <h3 className="featured-title">
-                            Our Signature Handmade Cold Meats
-                        </h3>
-                        <p className="featured-text">
-                            Experience the authentic taste of tradition with our
-                            100% in-house handmade cold meats. Crafted locally
-                            from the finest quality cuts using time-honored
-                            traditional methods, our artisanal preparation
-                            ensures a premium, rich flavor you simply won't find
-                            at standard butcheries. Taste the true difference of
-                            passion and craftsmanship.
-                        </p>
-                    </div>
-
-                    <div className="featured-image-right">
-                        <img
-                            src={kouevleisImg}
-                            alt="Handmade Cold Meats"
-                            className="featured-charcuterie-img"
-                            loading="lazy"
-                        />
-                        <img
-                            src={stampImg}
-                            alt="100% Handmade Local Quality"
-                            className="quality-seal"
                             loading="lazy"
                         />
                     </div>
