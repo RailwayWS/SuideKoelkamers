@@ -234,7 +234,7 @@
     .hero-slogan {
         font-size: 14px;
         letter-spacing: 1.2px;
-        margin-bottom: var(--sp-5);
+        margin: 0;
     }
     .hero-logos-row {
         display: grid;
@@ -242,7 +242,7 @@
         gap: 16px 24px;
         justify-items: center;
         margin-top: 10px;
-        width: 100%;
+        width: 75%;
     }
     .hero-logo-img {
         width: 100px;
@@ -275,13 +275,13 @@
     }
     .hero-slogan {
         font-size: 13px;
-        margin-bottom: var(--sp-5);
+        margin-bottom: 0;
     }
     .hero-logos-row {
         gap: 20px 0;
     }
     .hero-logo-img {
-        width: 75px;
+        width: 90px;
     }
     .hero-logo-item span {
         font-size: 14px;

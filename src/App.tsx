@@ -11,7 +11,6 @@ import sliderIcon from "./assets/icons/slider_icon.png";
 
 /* ── Hero images (WebP compressed) ──────────────────────────────────────── */
 import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
-import heroMobile1Webp from "./assets/hero/hero_mobile1.webp";
 import heroMobile2Webp from "./assets/hero/hero_mobile2.webp";
 import salamieWebp from "./assets/hero/salamie.webp";
 
@@ -39,15 +38,11 @@ import {
 // Desktop hero should stay static
 const HERO_SLIDES_DESKTOP = [heroDesktopWebp];
 // Mobile hero cycles through all images labeled "mobile" (+ the team + the salamis)
-const HERO_SLIDES_MOBILE = [
-    heroMobile1Webp,
-    salamieWebp,
-    heroDesktopWebp,
-    heroMobile2Webp,
-];
+const HERO_SLIDES_MOBILE = [salamieWebp, heroDesktopWebp, heroMobile2Webp];
 const HERO_SLOGANS = [
     "Where customers become friends",
     "Enjoy farm-to-table quality meat at your next Namib braai",
+    "A braai always brings people together for a great time",
 ];
 const SLIDE_DURATION_MOBILE = 5000;
 /** Time before the new slogan fades in (lets the bg transition settle first) */
