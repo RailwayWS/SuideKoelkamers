@@ -108,7 +108,7 @@
     line-height: 1.6;
     letter-spacing: 1.8px;
     color: rgba(255, 255, 255, 0.72);
-    margin-bottom: var(--sp-7);
+    margin: 0;
 
     /* Reserve space so different-length slogans don't shift surrounding content */
     min-height: calc(1.6em * 2);
@@ -125,6 +125,41 @@
 .hero-slogan--visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ── Hero Logos Row ───────────────────────── */
+.hero-logos-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; /* Big gap for desktop */
+    margin-top: var(--sp-2);
+    width: 100%;
+}
+
+.hero-logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-logo-img {
+    width: 125px; /* Larger logo size based on screenshot */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    object-fit: contain;
+}
+
+.hero-logo-item span {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* ── Scroll Cue ───────────────────────────── */
@@ -199,7 +234,28 @@
     .hero-slogan {
         font-size: 14px;
         letter-spacing: 1.2px;
-        margin-bottom: var(--sp-6);
+        margin-bottom: var(--sp-5);
+    }
+    .hero-logos-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 24px;
+        justify-items: center;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .hero-logo-img {
+        width: 100px;
+    }
+    .hero-logo-item span {
+        font-size: 18px;
+    }
+    .hero-logos-row .cta-button {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 0 12px 0;
     }
     .slider-icon {
         width: 56px;
@@ -220,6 +276,15 @@
     .hero-slogan {
         font-size: 13px;
         margin-bottom: var(--sp-5);
+    }
+    .hero-logos-row {
+        gap: 20px 0;
+    }
+    .hero-logo-img {
+        width: 75px;
+    }
+    .hero-logo-item span {
+        font-size: 14px;
     }
     .cta-button {
         padding: 14px 36px;

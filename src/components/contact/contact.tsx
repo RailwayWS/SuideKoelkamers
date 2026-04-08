@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import "./contact.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import koelkamersLogo from "../../assets/logos/koelkamers-logo-1.png";
+import vleisLogo from "../../assets/logos/vleis-logo-1.png";
 
 export default function ContactSection() {
     const [form, setForm] = useState({
@@ -45,10 +47,12 @@ export default function ContactSection() {
                     {/* Left: Suide Koelkamers */}
                     <div className="branch-card reveal reveal--left reveal--d1">
                         <div className="branch-card__header">
-                            <span className="branch-card__kicker">Branch</span>
-                            <h3 className="branch-card__title">
-                                Suide Koelkamers
-                            </h3>
+                            <img
+                                src={koelkamersLogo}
+                                alt="Suide Koelkamers Logo"
+                                className="branch-card__logo"
+                            />
+                            <h3 className="branch-card__title">Keetmanshoop</h3>
                         </div>
 
                         <div className="branch-grid">
@@ -70,10 +74,13 @@ export default function ContactSection() {
                                         Phone Numbers
                                     </span>
                                     <span className="info-value">
-                                        +264 63 222 004
+                                        +264 81 247 6318 [Chistine]
                                     </span>
                                     <span className="info-value">
-                                        +264 81 353 7829
+                                        +264 81 743 9047 [Mieke]
+                                    </span>
+                                    <span className="info-value">
+                                        +264 63 222 004 [Landline]
                                     </span>
                                 </div>
                             </div>
@@ -97,34 +104,7 @@ export default function ContactSection() {
                                         Email Addresses
                                     </span>
                                     <span className="info-value">
-                                        koeljohann@iway.na
-                                    </span>
-                                    <span className="info-value">
                                         stiena@iway.na
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="info-card">
-                                <div className="info-icon">
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
-                                </div>
-                                <div className="info-text">
-                                    <span className="info-label">
-                                        Physical Address
-                                    </span>
-                                    <span className="info-value">
-                                        Schmiede str. Keetmanshoop, Namibia
                                     </span>
                                 </div>
                             </div>
@@ -132,7 +112,7 @@ export default function ContactSection() {
                             <div className="contact-map">
                                 <iframe
                                     title="Suide Koelkamers Location"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1!2d18.1306!3d-26.5831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c43e51d8c1e4e3b%3A0x0!2sKeetmanshoop%2C+Namibia!5e0!3m2!1sen!2sna!4v1709000000000"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2235.9810690213712!2d18.13138864575164!3d-26.575792662341083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c168347addf2481%3A0x894d5db09ba64125!2sSuide%20Koelkamers!5e1!3m2!1sen!2sza!4v1775632372214!5m2!1sen!2sza"
                                     width="100%"
                                     height="250"
                                     style={{ border: 0, borderRadius: "12px" }}
@@ -140,14 +120,6 @@ export default function ContactSection() {
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
                                 />
-                                <a
-                                    href="https://maps.app.goo.gl/4y3KeDubayK5GbBP8"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="map-link"
-                                >
-                                    Open in Google Maps →
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -155,8 +127,12 @@ export default function ContactSection() {
                     {/* Right: Suide Vleis (copy same info for now) */}
                     <div className="branch-card reveal reveal--right reveal--d2">
                         <div className="branch-card__header">
-                            <span className="branch-card__kicker">Branch</span>
-                            <h3 className="branch-card__title">Suide Vleis</h3>
+                            <img
+                                src={vleisLogo}
+                                alt="Suide Vleis Logo"
+                                className="branch-card__logo"
+                            />
+                            <h3 className="branch-card__title">Mariental</h3>
                         </div>
 
                         <div className="branch-grid">
@@ -178,10 +154,13 @@ export default function ContactSection() {
                                         Phone Numbers
                                     </span>
                                     <span className="info-value">
-                                        +264 63 222 004
+                                        +264 81 247 6318 [Chistine]
                                     </span>
                                     <span className="info-value">
-                                        +264 81 353 7829
+                                        +264 81 743 9047 [Mieke]
+                                    </span>
+                                    <span className="info-value">
+                                        +264 63 247 785 [Landline]
                                     </span>
                                 </div>
                             </div>
@@ -205,34 +184,7 @@ export default function ContactSection() {
                                         Email Addresses
                                     </span>
                                     <span className="info-value">
-                                        koeljohann@iway.na
-                                    </span>
-                                    <span className="info-value">
                                         stiena@iway.na
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="info-card">
-                                <div className="info-icon">
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
-                                </div>
-                                <div className="info-text">
-                                    <span className="info-label">
-                                        Physical Address
-                                    </span>
-                                    <span className="info-value">
-                                        Schmiede str. Keetmanshoop, Namibia
                                     </span>
                                 </div>
                             </div>
@@ -240,7 +192,7 @@ export default function ContactSection() {
                             <div className="contact-map">
                                 <iframe
                                     title="Suide Vleis Location"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1!2d18.1306!3d-26.5831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c43e51d8c1e4e3b%3A0x0!2sKeetmanshoop%2C+Namibia!5e0!3m2!1sen!2sna!4v1709000000000"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1059069.0000129363!2d17.386249915105566!3d-25.59840156835002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c12013407a5de3d%3A0x52bfdaf502decefb!2sSuide%20Vleis%20Butchery!5e1!3m2!1sen!2sza!4v1775632413478!5m2!1sen!2sza"
                                     width="100%"
                                     height="250"
                                     style={{ border: 0, borderRadius: "12px" }}
@@ -248,14 +200,6 @@ export default function ContactSection() {
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
                                 />
-                                <a
-                                    href="https://maps.app.goo.gl/4y3KeDubayK5GbBP8"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="map-link"
-                                >
-                                    Open in Google Maps →
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -267,7 +211,7 @@ export default function ContactSection() {
                         <span className="social-card-label">Social Media</span>
                         <div className="social-links">
                             <a
-                                href="https://www.facebook.com"
+                                href="https://www.facebook.com/share/18j6pK4xs3/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-link"
@@ -280,7 +224,7 @@ export default function ContactSection() {
                             </a>
 
                             <a
-                                href="https://www.instagram.com"
+                                href="https://www.instagram.com/suide_vleishuis?igsh=YWUyMWU2Zjg0Mnpn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-link"
@@ -323,9 +267,6 @@ export default function ContactSection() {
                             <span className="contact-form__kicker">
                                 Send a message
                             </span>
-                            <h3 className="contact-form__title">
-                                Contact Form
-                            </h3>
                         </div>
 
                         <div className="form-group">

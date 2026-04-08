@@ -139,22 +139,24 @@
 
 .branch-card__header {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.branch-card__kicker {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: rgba(255, 255, 255, 0.55);
-    font-weight: 600;
+.branch-card__logo {
+    width: 65px;
+    height: auto;
+    border-radius: 50%;
+    background-color: #fff;
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .branch-card__title {
     font-family: "Oswald", sans-serif;
-    font-size: 26px;
+    font-size: 28px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fff;

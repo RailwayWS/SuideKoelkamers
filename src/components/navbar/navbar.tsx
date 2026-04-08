@@ -127,6 +127,21 @@ export default function Navbar() {
                             {link.label.toUpperCase()}
                         </li>
                     ))}
+                    {/* Mobile-only Contact link */}
+                    <li
+                        className={`mobile-only-link ${
+                            activeLink === "Contact" ? "active" : ""
+                        }`}
+                        onClick={() =>
+                            handleLinkClick({
+                                label: "Contact",
+                                href: "#contact",
+                            })
+                        }
+                        role="listitem"
+                    >
+                        CONTACT US
+                    </li>
                 </ul>
 
                 {/* Right Side */}

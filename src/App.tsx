@@ -13,7 +13,10 @@ import sliderIcon from "./assets/icons/slider_icon.png";
 import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
 import heroMobile1Webp from "./assets/hero/hero_mobile1.webp";
 import heroMobile2Webp from "./assets/hero/hero_mobile2.webp";
-import heroMobile4Webp from "./assets/hero/hero_mobile4.webp";
+import salamieWebp from "./assets/hero/salamie.webp";
+
+import koelkamersLogo from "./assets/logos/koelkamers-logo-1.png";
+import vleisLogo from "./assets/logos/vleis-logo-1.png";
 
 /* ── Above-fold components (eagerly loaded) ─────────────────────────────── */
 import Navbar from "./components/navbar/navbar";
@@ -35,11 +38,16 @@ import {
 
 // Desktop hero should stay static
 const HERO_SLIDES_DESKTOP = [heroDesktopWebp];
-// Mobile hero cycles through all images labeled "mobile"
-const HERO_SLIDES_MOBILE = [heroMobile1Webp, heroMobile2Webp, heroMobile4Webp];
+// Mobile hero cycles through all images labeled "mobile" (+ the team + the salamis)
+const HERO_SLIDES_MOBILE = [
+    heroMobile1Webp,
+    salamieWebp,
+    heroDesktopWebp,
+    heroMobile2Webp,
+];
 const HERO_SLOGANS = [
     "Where customers become friends",
-    "Quality local meat for great times together",
+    "Enjoy farm-to-table quality meat at your next Namib braai",
 ];
 const SLIDE_DURATION_MOBILE = 5000;
 /** Time before the new slogan fades in (lets the bg transition settle first) */
@@ -178,7 +186,7 @@ function App() {
                         <img
                             src={src}
                             alt=""
-                            className="hero-slide-img"
+                            className={`hero-slide-img ${src === heroDesktopWebp && isMobileHero ? "hero-slide-img--contain" : ""}`}
                             draggable={false}
                             fetchPriority={i === 0 ? "high" : "low"}
                             decoding={i === 0 ? "sync" : "async"}
@@ -205,7 +213,7 @@ function App() {
                         </h1>
 
                         <p className="hero-subtitle hero-fade hero-fade--d3">
-                            Butcher &amp; Meat Shop
+                            Your Local Butchery
                         </p>
 
                         {/* Dynamic slogan — synced to background slide */}
@@ -216,16 +224,39 @@ function App() {
                             {displaySlogan}
                         </p>
 
-                        <button
-                            className="cta-button hero-fade hero-fade--d4"
-                            onClick={() => {
-                                const el = document.getElementById("contact");
-                                if (el)
-                                    el.scrollIntoView({ behavior: "smooth" });
-                            }}
-                        >
-                            Contact Us
-                        </button>
+                        <div className="hero-logos-row hero-fade hero-fade--d4">
+                            <div className="hero-logo-item">
+                                <img
+                                    src={koelkamersLogo}
+                                    alt="Suide Koelkamers"
+                                    className="hero-logo-img"
+                                />
+                                <span>Keetmanshoop</span>
+                            </div>
+
+                            <button
+                                className="cta-button"
+                                onClick={() => {
+                                    const el =
+                                        document.getElementById("contact");
+                                    if (el)
+                                        el.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                }}
+                            >
+                                Contact Us
+                            </button>
+
+                            <div className="hero-logo-item">
+                                <img
+                                    src={vleisLogo}
+                                    alt="Suide Vleis"
+                                    className="hero-logo-img"
+                                />
+                                <span>Mariental</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

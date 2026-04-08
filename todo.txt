@@ -1,0 +1,3 @@
+- add 2 pics to hero for desktop
+- slogan text appears twice on mobile, shoudl loop not repeat
+
