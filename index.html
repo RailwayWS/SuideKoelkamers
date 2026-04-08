@@ -43,13 +43,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-        <!-- Deferred font loading: load CSS asynchronously to avoid render-blocking -->
+        <!-- Load primary fonts synchronously so the loader text doesn't pop in -->
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Rubik:wght@400;700&display=swap"
-            media="print"
-            onload="this.media = 'all'"
         />
+        <!-- Deferred loading for secondary fonts -->
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
@@ -67,8 +66,8 @@
                 rel="stylesheet"
             />
         </noscript>
-      <script type="module" crossorigin src="/assets/index-D2sN-7K4.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/index-CHSdF-mO.css">
+      <script type="module" crossorigin src="/assets/index-y8ceGcTn.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-3ktXHIvz.css">
     </head>
 
     <!-- Google tag (gtag.js) -->
@@ -90,6 +89,7 @@
         <!-- Initial loader (shown until hero/about images are preloaded) -->
         <div id="app-loader" aria-label="Loading" role="status">
             <div class="app-loader__inner">
+                <div class="app-loader__logo">Suide Koelkamers</div>
                 <div class="app-loader__bar" aria-hidden="true">
                     <span class="app-loader__bar-fill"></span>
                 </div>
