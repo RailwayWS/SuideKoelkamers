@@ -19,11 +19,10 @@ import vleisLogo from "./assets/logos/vleis-logo-1.png";
 
 /* ── Above-fold components (eagerly loaded) ─────────────────────────────── */
 import Navbar from "./components/navbar/navbar";
-import AboutSection from "./components/about/about";
+import WhyChooseSection from "./components/whyChoose/whyChoose";
 
 /* ── Below-fold components (code-split) ─────────────────────────────────── */
 const OurStorySection = lazy(() => import("./components/ourStory/ourStory"));
-const WhyChooseSection = lazy(() => import("./components/whyChoose/whyChoose"));
 const ProductsSection = lazy(() => import("./components/products/products"));
 const CtaSection = lazy(() => import("./components/cta/cta"));
 const FaqSection = lazy(() => import("./components/faq/faq"));
@@ -71,7 +70,7 @@ function App() {
             await new Promise((r) => requestAnimationFrame(() => r(null)));
 
             const heroEl = heroPreloadRef.current;
-            const aboutEl = document.getElementById("about");
+            const aboutEl = document.getElementById("what-we-offer");
 
             try {
                 // Wait for BOTH above-fold images AND full page load (fonts,
@@ -262,10 +261,9 @@ function App() {
                 </div>
             </header>
 
-            <AboutSection />
+            <WhyChooseSection />
             <Suspense fallback={null}>
                 <OurStorySection />
-                <WhyChooseSection />
                 <ProductsSection />
                 <CtaSection />
                 <FaqSection />

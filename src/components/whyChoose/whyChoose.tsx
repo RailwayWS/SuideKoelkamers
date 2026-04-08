@@ -4,49 +4,50 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 import chooseBg from "../../assets/background/choose_bg.webp";
 import titleShapeImg from "../../assets/icons/title_shape.png";
-import coldmeat from "../../assets/carousel/slag2.webp";
 
-import butcheringIcon from "../../assets/icons/butchering.png";
-import fireIcon from "../../assets/icons/fire.png";
-import meatIcon from "../../assets/icons/meat.png";
-import stampImg from "../../assets/icons/stamp.png";
-
+// You may need to create/update these image paths in your assets folder
 import kouevleisImg from "../../assets/carousel/lekker.webp";
+import salamiImg from "../../assets/carousel/salamie.webp";
+import carcassImg from "../../assets/carousel/salamie.webp"; // Added based on requirements
+import biltongImg from "../../assets/carousel/lekker.webp"; // Added based on requirements
+import roosterbroodImg from "../../assets/carousel/braai.webp"; // Using braai as roosterbrood placeholder
+import stampImg from "../../assets/icons/stamp.png";
 
 type Feature = {
     title: string;
     shortDesc: string;
     longDesc: string;
-    icon: string;
-    iconAlt: string;
+    img: string;
 };
 
 const FEATURES: Feature[] = [
     {
-        title: "Fresh, Local Meat",
-        shortDesc:
-            "Premium local meat from farm to table, including our award-winning 2010 boerewors.",
+        title: "Cold Meats",
+        shortDesc: "Handmade cold meat from 100% pure meat.",
         longDesc:
-            "To ensure succulent meat cuts, we use pork produced at our own OppiKoppi piggery, where we keep to stringent standards, and we source lamb and beef from local farmers that is reared on the unique natural grazing of southern Namibia. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite's Boerewors Competition in 2010.",
-        icon: butcheringIcon,
-        iconAlt: "Butchering",
+            "Curated range includes salami*, ham, polony, jagdwurst, cheesegrillers*, russians*, viennas*, bratwurst, currywurst, rauchfleisch and black forest ham. (*Starred products available in beef and pork options).",
+        img: salamiImg,
     },
     {
-        title: "Fresh Cold Meats",
-        shortDesc: "Handcrafted cured meat products made from 100% fresh meat.",
+        title: "Fresh Local Meat",
+        shortDesc: "Fresh local meat: Lamb, beef, pork, chicken.",
         longDesc:
-            "We pride ourselves in our specialty products such as our handmade curated cold meat range, which includes salami, ham, rauchfleisch, footlongs, pork and beef russians, viennas and jagdwurst — all made from 100% fresh meat with no unnecessary additives.",
-        icon: meatIcon,
-        iconAlt: "Meat",
+            "To ensure succulent meat cuts, we use pork produced at our own OppiKoppi piggery, where we keep to stringent standards, and we source lamb and beef from local farmers that is reared on the unique natural grazing of southern Namibia. Our master butcher, Wikus Malan, is also a boerewors champion who won Shoprite's Boerewors Competition in 2010.",
+        img: carcassImg,
+    },
+    {
+        title: "Handmade Snacks",
+        shortDesc: "Traditional handmade snacks.",
+        longDesc:
+            "Droëwors, biltong, chilli bites, cabanossi, biltong flaps, warmwiele, and bacon biltong.",
+        img: biltongImg,
     },
     {
         title: "Daily Deli",
-        shortDesc:
-            "A deli packed with fresh, homemade meals and takeaways to make your afternoons easier.",
+        shortDesc: "Our Deli offers daily homemade meals and takeaways.",
         longDesc:
-            "To make life easier in the afternoons, our deli prepares homemade dishes every day. Come enjoy our tasty burgers, pizzas, braai favourites, Russians, and real hand-cut chips.",
-        icon: fireIcon,
-        iconAlt: "Fire",
+            "To make life easier, our deli prepares homemade dishes every day. Enjoy our tasty burgers, pizzas, braai, russians, and real hand-cut chips, perfect for a quick snack or family dinner.",
+        img: roosterbroodImg,
     },
 ];
 
@@ -54,7 +55,7 @@ const FEATURES: Feature[] = [
 const FeatureCard = ({ feature }: { feature: Feature; delay: number }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
-    const handleFlip = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const handleFlip = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setIsFlipped(!isFlipped);
     };
@@ -63,29 +64,40 @@ const FeatureCard = ({ feature }: { feature: Feature; delay: number }) => {
         <div className={`feature-card ${isFlipped ? "flipped" : ""}`}>
             <div className="card-inner">
                 {/* Front of the card */}
-                <div className="card-front">
-                    <div className="card-icon-circle">
-                        <img
-                            src={feature.icon}
-                            alt={feature.iconAlt}
-                            className="feature-icon"
-                            loading="lazy"
-                        />
+                <div
+                    className="card-front"
+                    style={{ backgroundImage: `url(${feature.img})` }}
+                >
+                    <div className="card-gradient-overlay" />
+                    <div className="card-content">
+                        <div className="card-text-wrapper">
+                            <h3 className="card-title">{feature.title}</h3>
+                            <p className="card-desc">{feature.shortDesc}</p>
+                        </div>
+                        <button className="card-pill-btn" onClick={handleFlip}>
+                            Read more
+                        </button>
                     </div>
-                    <h3 className="card-title">{feature.title}</h3>
-                    <p className="card-desc">{feature.shortDesc}</p>
-                    <a href="#" className="card-link" onClick={handleFlip}>
-                        LEARN MORE
-                    </a>
                 </div>
 
                 {/* Back of the card */}
-                <div className="card-back">
-                    <h3 className="card-title">{feature.title}</h3>
-                    <p className="card-desc">{feature.longDesc}</p>
-                    <a href="#" className="card-link" onClick={handleFlip}>
-                        GO BACK
-                    </a>
+                <div
+                    className="card-back"
+                    style={{ backgroundImage: `url(${feature.img})` }}
+                >
+                    <div className="card-gradient-overlay card-gradient-overlay--dark" />
+                    <div className="card-content">
+                        <div className="card-text-wrapper">
+                            <h3 className="card-title">{feature.title}</h3>
+                            <p className="card-desc">{feature.longDesc}</p>
+                        </div>
+                        <button
+                            className="card-pill-btn card-pill-btn--back"
+                            onClick={handleFlip}
+                        >
+                            Go back
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,13 +120,15 @@ export default function WhyChooseSection() {
                     <span className="subtitle-script">What we Offer</span>
                     <h2 className="title-large">Why Choose Us?</h2>
                     <div className="scissors-separator">
-                        <img src={titleShapeImg} alt="Section separator" loading="lazy" />
+                        <img
+                            src={titleShapeImg}
+                            alt="Section separator"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
 
-                {/* Central Content */}
-
-                {/* Featured Product Banner Moved from Products and Redesigned */}
+                {/* Featured Product Banner */}
                 <div className="featured-product reveal reveal--scale reveal--d1">
                     <div className="featured-content-left">
                         <span className="featured-badge subtitle-script">
@@ -135,14 +149,12 @@ export default function WhyChooseSection() {
                     </div>
 
                     <div className="featured-image-right">
-                        {/* Placeholder for charcuterie image */}
                         <img
-                            src={kouevleisImg ?? coldmeat}
+                            src={kouevleisImg}
                             alt="Handmade Cold Meats"
                             className="featured-charcuterie-img"
                             loading="lazy"
                         />
-                        {/* Quality Stamp */}
                         <img
                             src={stampImg}
                             alt="100% Handmade Local Quality"
