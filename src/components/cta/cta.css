@@ -71,12 +71,10 @@
     margin: 0 0 20px 0;
 }
 
-/* --- Ethos Cards --- */
-.ethos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+/* --- Ethos Single Card --- */
+.ethos-single {
     width: 100%;
+    max-width: 900px; /* Made wider */
     margin-top: 10px;
 }
 
@@ -85,7 +83,7 @@
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 35px 28px;
+    padding: 60px 50px; /* Bigger padding */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition:
@@ -99,10 +97,10 @@
 .ethos-card::after {
     content: "";
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 80px;
-    height: 80px;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
     border: 2px solid rgba(229, 57, 53, 0.15);
     border-radius: 50%;
     pointer-events: none;
@@ -121,18 +119,23 @@
 
 .ethos-heading {
     font-family: "Oswald", sans-serif;
-    font-size: 18px;
+    font-size: 28px; /* Increased font size */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #e53935;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 /* === Technique 5: Opacity hierarchy on ethos text === */
 .ethos-text {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.65);
+    font-size: 20px; /* Increased font size */
+    color: rgba(
+        255,
+        255,
+        255,
+        0.85
+    ); /* Slightly more opaque for better readability */
     line-height: 1.8;
     margin: 0;
 }
@@ -143,12 +146,19 @@
         padding: 60px 0;
     }
 
-    .ethos-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .ethos-card {
+        padding: 40px 30px;
     }
 
     .cta-title {
         font-size: 36px;
+    }
+
+    .ethos-heading {
+        font-size: 22px;
+    }
+
+    .ethos-text {
+        font-size: 16px;
     }
 }

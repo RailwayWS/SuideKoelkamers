@@ -5,10 +5,10 @@ type NavLink = { label: string; href: string };
 
 const NAV_LINKS: NavLink[] = [
     { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Our Story", href: "#our-story" },
-    { label: "What we Offer", href: "#what-we-offer" },
+    { label: "What We Offer", href: "#what-we-offer" },
     { label: "Products", href: "#products" },
+    { label: "Ethos", href: "#ethos" },
+    { label: "Our Story", href: "#our-story" },
 ];
 
 export default function Navbar() {
@@ -16,29 +16,16 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState("Home");
     const [menuOpen, setMenuOpen] = useState(false);
 
-    /* Lock page scroll while mobile menu is open */
-    useEffect(() => {
-        if (!menuOpen) return;
-
-        const prevOverflow = document.body.style.overflow;
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = prevOverflow;
-        };
-    }, [menuOpen]);
-
     /* Active section detection & glass effect */
     useEffect(() => {
         const sections = [
             { id: "home", label: "Home" },
-            { id: "about", label: "About" },
-            { id: "our-story", label: "Our Story" },
-            { id: "what-we-offer", label: "What we Offer" },
+            { id: "what-we-offer", label: "What We Offer" },
             { id: "products", label: "Products" },
             { id: "ethos", label: "Ethos" },
-            { id: "faq", label: "FAQ" },
+            { id: "our-story", label: "Our Story" },
             { id: "contact", label: "Contact" },
+            { id: "faq", label: "FAQ" },
         ];
 
         const handleScroll = () => {
@@ -48,15 +35,18 @@ export default function Navbar() {
             // Active section detection
             let currentActive = "Home";
 
-            // Loop through sections sequentially and update active layer
+            // The exact line on the screen we use to determine what section we are in
+            const scrollThreshold = window.innerHeight * 0.4;
+
             for (const section of sections) {
                 const el = document.getElementById(section.id);
                 if (el) {
                     const rect = el.getBoundingClientRect();
-                    // If the section crosses into the upper 40% of the screen, mark it active
+
+                    // Check if the threshold line is vertically between the top and bottom of the element
                     if (
-                        rect.top <= window.innerHeight * 0.4 &&
-                        rect.bottom > 0
+                        rect.top <= scrollThreshold &&
+                        rect.bottom > scrollThreshold
                     ) {
                         currentActive = section.label;
                     }

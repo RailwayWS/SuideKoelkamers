@@ -4,24 +4,24 @@ import titleShapeImg from "../../assets/icons/title_shape.png";
 
 const STORY_BLOCKS = [
     {
-        year: "The Beginning",
-        text: "Our story begins in south-western Namibia where Johann grew up on a farm bordering the Namib Desert. It was here that he learned strong family values and the importance of ethical farming practices.",
+        year: "The Start 2009",
+        text: "After 10 years as Principal and 6 years as Operations Manager at Klein Aus Vista Johann Swiegers had an urge to venture into business to build a something for his family and ultimately leave something behind for the next generation. He bought Suide Koelkamers a butchery in 2009.",
     },
     {
-        year: "2009",
-        text: "A former school principal and operations manager of Klein-Aus Vista Lodge, Johann began his own business venture in 2009, doing what came naturally to him after a childhood spent on the family farm.",
+        year: "Our Mission",
+        text: "His intention was to make a difference in the community by creating jobs and supporting local farmers.",
     },
     {
-        year: "Community",
-        text: "His intention was to make a difference to the Keetmanshoop community by providing locally-sourced and naturally-reared meat at an affordable price, supporting the local farmers of the area. The business is family-run, with the second generation continuing the tradition of offering top-notch quality and service.",
+        year: "2020-2021",
+        text: "Covid had a big impact on all industries especially the tourism sector. With our Tourism market being closed we had to look at alternative income streams. Our Deli section that offers daily meals and takeaways was then born. We also then started to make our own cold meat range inhouse. We also ventured into a different town in the South by starting Suide Vleis in Mariental to broaden our reach. Covid was tough for everyone but made us all definitely stronger.",
     },
     {
-        year: "Pride",
-        text: "The Swiegers family takes pride in providing a purely-Namibian product, to both locals and tourists, ensuring a quality product that competes well in the international arena.",
+        year: "Family Run",
+        text: "With Johann’s wife Christine being part of the business from day 1 and his oldest son joining in 2016 the business is now a family run business. After 16 years of hard work and building a strong foundation Johann decided in 2025 at the age of 60 to return to his passion namely education and became the principal at ‘Keetmanshoop Privaatskool’.",
     },
     {
-        year: "Hospitality",
-        text: "We enjoy bringing people, cultures and families together for good food around a braai or a dinner table. After all, that's what Namibian hospitality is all about.",
+        year: "Today",
+        text: "Today we pride ourselves in catering for all our customers’ needs. From high end lodges to providing affordable food on the table for a family or lekker meat for a braai. We strive to always do ethical business and be the preferred butcher for our customers.",
     },
 ];
 
@@ -36,7 +36,11 @@ export default function OurStorySection() {
                     <span className="subtitle-script">Our Heritage</span>
                     <h2 className="title-large">Our Story</h2>
                     <div className="scissors-separator">
-                        <img src={titleShapeImg} alt="Section separator" loading="lazy" />
+                        <img
+                            src={titleShapeImg}
+                            alt="Section separator"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
 

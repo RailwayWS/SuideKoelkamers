@@ -2,8 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./products.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-import titleShapeImg from "../../assets/icons/title_shape.png";
-
 // import img1 from "../../assets/carousel/boud.webp";
 import img2 from "../../assets/carousel/boud2.webp";
 import img3 from "../../assets/carousel/braai.webp";
@@ -72,15 +70,6 @@ export default function ProductsSection() {
     return (
         <section className="products-section" id="products" ref={sectionRef}>
             <div className="container products-container">
-                {/* Header */}
-                <div className="section-header reveal">
-                    <span className="subtitle-script">Premium Selection</span>
-                    <h2 className="title-large">Our Organic Products</h2>
-                    <div className="scissors-separator">
-                        <img src={titleShapeImg} alt="Section separator" loading="lazy" />
-                    </div>
-                </div>
-
                 {/* Carousel */}
                 <div
                     className="modern-carousel reveal reveal--scale reveal--d2"

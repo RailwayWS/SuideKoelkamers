@@ -3,6 +3,7 @@ import "./faq.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import faqBg from "../../assets/background/faq_bg.webp";
 
+// ── Icons ──────────────────────────────────
 const IconChevron = ({ isOpen }: { isOpen: boolean }) => (
     <svg
         width="14"
@@ -23,26 +24,151 @@ const IconChevron = ({ isOpen }: { isOpen: boolean }) => (
     </svg>
 );
 
-const FAQS = [
+const IconPhone = () => (
+    <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+);
+
+const IconInfo = () => (
+    <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 16v-4"></path>
+        <path d="M12 8h.01"></path>
+    </svg>
+);
+
+const IconOrder = () => (
+    <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+    </svg>
+);
+
+const IconCard = () => (
+    <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+        <line x1="1" y1="10" x2="23" y2="10"></line>
+    </svg>
+);
+
+// ── Types & Data ───────────────────────────
+type FaqItem = {
+    question: string;
+    answer: React.ReactNode;
+};
+
+const FAQS: FaqItem[] = [
     {
-        question: "WHERE DO YOU SOURCE YOUR MEAT?",
-        answer: "We source lamb and beef from local farmers across southern Namibia, where livestock is naturally reared on the region's unique natural grazing. Our pork is produced at our own OppiKoppi piggery, where we maintain stringent quality standards from farm to table.",
+        question: "PRICELIST?",
+        answer: "We don’t have a pricelist available on our website as meat prices vary depending on the market. Please contact us via email or cellphone and we will assist you.",
     },
     {
-        question: "DO YOU OFFER CUSTOM CUTS AND SPECIAL ORDERS?",
-        answer: "Absolutely. Our master butchers are happy to prepare custom cuts tailored to your specific needs — whether for a special occasion, braai, or bulk order. Simply contact us in advance so we can prepare your order to perfection.",
+        question:
+            "WE ARE TRAVELLING AND WANT TO PLACE AN ORDER. HOW DOES IT WORK?",
+        answer: (
+            <div className="faq-process">
+                <div className="faq-step">
+                    <div className="faq-step-number">
+                        <IconPhone />
+                    </div>
+                    <div className="faq-step-content">
+                        <strong>Contact Us</strong>
+                        <p>Send us an email, WhatsApp, or give us a call.</p>
+                    </div>
+                </div>
+                <div className="faq-step">
+                    <div className="faq-step-number">
+                        <IconInfo />
+                    </div>
+                    <div className="faq-step-content">
+                        <strong>Receive Info</strong>
+                        <p>
+                            We will provide an order list with products and
+                            prices.
+                        </p>
+                    </div>
+                </div>
+                <div className="faq-step">
+                    <div className="faq-step-number">
+                        <IconOrder />
+                    </div>
+                    <div className="faq-step-content">
+                        <strong>Place Order</strong>
+                        <p>
+                            Place your order at least a week prior to arriving.
+                            Provide the following:
+                        </p>
+                        <ul className="faq-step-list">
+                            <li>Pick up date</li>
+                            <li>
+                                Packaging instructions (e.g., 500g x 3
+                                boerewors, Beef rump 300g x 4, etc.)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="faq-step">
+                    <div className="faq-step-number">
+                        <IconCard />
+                    </div>
+                    <div className="faq-step-content">
+                        <strong>Collect & Pay</strong>
+                        <p>
+                            When collecting your order, you can easily swipe
+                            in-store.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        ),
     },
     {
-        question: "WHAT IS INCLUDED IN YOUR COLD MEAT RANGE?",
-        answer: "Our handmade cold meat range includes salami, ham, rauchfleisch, footlongs, pork and beef russians, viennas, and jagdwurst — all crafted from 100% fresh meat with no unnecessary additives or preservatives.",
+        question:
+            "CAN WE TAKE MEAT OVER THE BORDER WHEN TRAVELLING FROM NAMIBIA TO SOUTH AFRICA?",
+        answer: "Yes, you are allowed to take 25 kg of meat per person but not more than 75 kg per car. It is recommended to keep receipts for meat bought in Namibia for border inspection. Remember to declare your meat at the South African Border.",
     },
     {
-        question: "DO YOU HAVE A DELI AND TAKEAWAY SERVICE?",
-        answer: "Yes! Our daily deli prepares homemade meals every day, including burgers, pizzas, braai favourites, Russians, and real hand-cut chips. It's the perfect stop for a quick, satisfying meal any day of the week.",
-    },
-    {
-        question: "WHAT ARE YOUR TRADING HOURS?",
-        answer: "We are open Monday to Friday from 08:00 to 17:30, and Saturdays from 08:00 to 14:00. We are closed on Sundays and public holidays. Please contact us directly for holiday trading schedules.",
+        question:
+            "WHAT IS THE REGULATION FOR BRINGING MEAT FROM SOUTH AFRICA TO NAMIBIA?",
+        answer: "Due to the Foot-and-Mouth Disease in South Africa, all meat and animal products, including raw or cooked products, are prohibited from entering Namibia. The primary goal is to prevent the Foot-and-Mouth Disease entering the country which can have a devastating effect on the local economy, livestock industry and Namibia’s valuable export markets.",
     },
 ];
 
@@ -94,7 +220,15 @@ export default function FaqSection() {
                                 <div
                                     className={`faq-answer-inner ${activeIndex === index ? "open" : ""}`}
                                 >
-                                    <p className="faq-answer">{item.answer}</p>
+                                    {typeof item.answer === "string" ? (
+                                        <p className="faq-answer">
+                                            {item.answer}
+                                        </p>
+                                    ) : (
+                                        <div className="faq-answer custom-layout">
+                                            {item.answer}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ import titleShapeImg from "../../assets/icons/title_shape.png";
 // You may need to create/update these image paths in your assets folder
 import salamiImg from "../../assets/carousel/salamie.webp";
 import carcassImg from "../../assets/carousel/karkas.jpeg"; // Added based on requirements
-import biltongImg from "../../assets/carousel/skinkbord2.webp"; // Added based on requirements
+import biltongImg from "../../assets/carousel/biltong.jpeg"; // Added based on requirements
 import roosterbroodImg from "../../assets/carousel/braai.webp"; // Using braai as roosterbrood placeholder
 
 type Feature = {
@@ -103,14 +103,14 @@ const FeatureCard = ({ feature }: { feature: Feature; delay: number }) => {
 };
 
 export default function WhyChooseSection() {
-    const ref = useScrollReveal();
+    const sectionRef = useScrollReveal();
 
     return (
         <section
             className="choose-section"
             id="what-we-offer"
             style={{ backgroundImage: `url(${chooseBg})` }}
-            ref={ref}
+            ref={sectionRef}
         >
             <div className="container choose-container">
                 {/* Header */}

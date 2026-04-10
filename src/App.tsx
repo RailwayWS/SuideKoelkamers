@@ -12,7 +12,7 @@ import sliderIcon from "./assets/icons/slider_icon.png";
 /* ── Hero images (WebP compressed) ──────────────────────────────────────── */
 import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
 import heroDesktop2Webp from "./assets/hero/heroNew3.jpeg";
-import heroDesktop3Webp from "./assets/hero/heroNew2.jpeg";
+import heroDesktop3Webp from "./assets/hero/HeroImageGemini.png";
 import heroMobile2Webp from "./assets/hero/hero_mobile2.webp";
 import salamieWebp from "./assets/hero/salamie.webp";
 
@@ -273,11 +273,11 @@ function App() {
 
             <WhyChooseSection />
             <Suspense fallback={null}>
-                <OurStorySection />
                 <ProductsSection />
                 <CtaSection />
-                <FaqSection />
+                <OurStorySection />
                 <ContactSection />
+                <FaqSection />
             </Suspense>
         </div>
     );
