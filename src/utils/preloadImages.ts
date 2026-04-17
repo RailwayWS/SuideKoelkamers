@@ -112,9 +112,13 @@ export function waitForFullLoad(): Promise<void> {
  */
 export function hideAppLoader(): void {
     const loader = document.getElementById("app-loader");
-    if (!loader) return;
+    if (!loader) {
+        document.body.classList.add("app-loaded");
+        return;
+    }
 
     loader.classList.add("app-loader--hide");
+    document.body.classList.add("app-loaded");
 
     const remove = () => loader.remove();
     loader.addEventListener("transitionend", remove, { once: true });
