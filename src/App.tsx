@@ -275,8 +275,10 @@ function App() {
             <Suspense fallback={null}>
                 <ProductsSection />
                 <CtaSection />
-                <OurStorySection />
-                <ContactSection />
+                <div className="story-contact-wrapper">
+                    <OurStorySection />
+                    <ContactSection />
+                </div>
                 <FaqSection />
             </Suspense>
         </div>

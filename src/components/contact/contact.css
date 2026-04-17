@@ -1,5 +1,5 @@
-/* ========= Contact Section ========= */
-.contact-section {
+/* ========= Contact / Story Shared Wrapper ========= */
+.story-contact-wrapper {
     position: relative;
     background-color: #1a1a1a;
     background-image:
@@ -14,13 +14,12 @@
             transparent 50%
         ),
         linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
-    padding: 100px 0;
-    color: #fff;
     overflow: hidden;
+    color: #fff;
 }
 
 /* Decorative glowing orb — top right */
-.contact-section::before {
+.story-contact-wrapper::before {
     content: "";
     position: absolute;
     top: -80px;
@@ -38,7 +37,7 @@
 }
 
 /* Decorative glowing orb — bottom left */
-.contact-section::after {
+.story-contact-wrapper::after {
     content: "";
     position: absolute;
     bottom: -60px;
@@ -53,6 +52,19 @@
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
+}
+
+/* Ensure content sits above decorative elements */
+.story-contact-wrapper > * {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-section {
+    position: relative;
+    background-color: transparent;
+    padding: 100px 0;
+    color: #fff;
 }
 
 /* Ensure content sits above decorative elements */

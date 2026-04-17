@@ -2,22 +2,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./products.css";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
-// import img1 from "../../assets/carousel/boud.webp";
-import img2 from "../../assets/carousel/boud2.webp";
-import img3 from "../../assets/carousel/braai.webp";
-import img4 from "../../assets/carousel/brood.webp";
-// import img5 from "../../assets/carousel/chips.webp";
-// import img6 from "../../assets/carousel/lekker.webp";
-import img7 from "../../assets/carousel/mense.webp";
-// import img8 from "../../assets/carousel/namma.webp";
-import img9 from "../../assets/carousel/namma2.webp";
-// import img10 from "../../assets/carousel/salamie.webp";
-import img11 from "../../assets/carousel/skinkbord.webp";
-import img12 from "../../assets/carousel/skinkbord2.webp";
-import img13 from "../../assets/carousel/slag.webp";
-import img14 from "../../assets/carousel/slag2.webp";
+import img1 from "../../assets/carousel/peopleHD.png";
+import img2 from "../../assets/carousel/sosaties.jpeg";
+import img3 from "../../assets/carousel/namma2.webp";
+import img4 from "../../assets/carousel/boerewors.jpeg";
+import img5 from "../../assets/carousel/pote.jpg";
+import img6 from "../../assets/carousel/rib.webp";
+import img7 from "../../assets/carousel/winkel.jpeg";
 
-const SLIDES = [img2, img3, img4, img7, img9, img11, img12, img13, img14];
+import chooseBg from "../../assets/background/choose_bg.webp";
+
+const SLIDES = [img1, img2, img3, img4, img5, img6, img7];
 
 export default function ProductsSection() {
     const [current, setCurrent] = useState(0);
@@ -69,6 +64,10 @@ export default function ProductsSection() {
 
     return (
         <section className="products-section" id="products" ref={sectionRef}>
+            <div
+                className="products-bg-element"
+                style={{ backgroundImage: `url(${chooseBg})` }}
+            ></div>
             <div className="container products-container">
                 {/* Carousel */}
                 <div
