@@ -261,6 +261,64 @@ function App() {
                                 <span>Mariental</span>
                             </div>
                         </div>
+
+                        {/* Social Buttons Below Contact Us */}
+                        <div className="hero-social-links hero-fade hero-fade--d4">
+                            <a
+                                href="https://www.facebook.com/share/18j6pK4xs3/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hero-social-btn"
+                                aria-label="Facebook"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    width="20"
+                                    height="20"
+                                >
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                            </a>
+                            <a
+                                href="https://www.instagram.com/suide_vleishuis?igsh=YWUyMWU2Zjg0Mnpn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hero-social-btn"
+                                aria-label="Instagram"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    width="20"
+                                    height="20"
+                                >
+                                    <rect
+                                        x="2"
+                                        y="2"
+                                        width="20"
+                                        height="20"
+                                        rx="5"
+                                        ry="5"
+                                    />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line
+                                        x1="17.5"
+                                        y1="6.5"
+                                        x2="17.51"
+                                        y2="6.5"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
