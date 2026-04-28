@@ -91,7 +91,7 @@ export default function Navbar() {
                 <div className="nav-left">
                     <div className="nav-social-icons">
                         <a
-                            href="https://facebook.com"
+                            href="https://www.facebook.com/share/18j6pK4xs3/"
                             target="_blank"
                             rel="noreferrer"
                             aria-label="Facebook"
@@ -111,7 +111,7 @@ export default function Navbar() {
                             </svg>
                         </a>
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/suide_vleishuis?igsh=YWUyMWU2Zjg0Mnpn"
                             target="_blank"
                             rel="noreferrer"
                             aria-label="Instagram"

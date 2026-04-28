@@ -8,12 +8,11 @@ import img3 from "../../assets/carousel/namma2.webp";
 import img4 from "../../assets/carousel/boerewors.jpeg";
 import img5 from "../../assets/carousel/pote.jpg";
 import img6 from "../../assets/carousel/rib.webp";
-import img7 from "../../assets/carousel/winkel.jpeg";
 import img8 from "../../assets/carousel/buite.png";
 
 import chooseBg from "../../assets/background/choose_bg.webp";
 
-const SLIDES = [img1, img2, img3, img4, img5, img6, img7, img8];
+const SLIDES = [img1, img2, img3, img4, img5, img6, img8];
 
 export default function ProductsSection() {
     const [current, setCurrent] = useState(0);
