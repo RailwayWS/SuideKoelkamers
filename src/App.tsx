@@ -13,7 +13,7 @@ import sliderIcon from "./assets/icons/slider_icon.png";
 import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
 import heroDesktop2Webp from "./assets/hero/heroNew3.jpeg";
 import heroDesktop3Webp from "./assets/hero/HeroImageGemini.png";
-import heroMobile2Webp from "./assets/hero/hero_mobile2.webp";
+import heroMobile2Webp from "./assets/hero/hero_mobile1.webp";
 import salamieWebp from "./assets/hero/salamie.webp";
 
 import koelkamersLogo from "./assets/logos/koelkamers-logo-1.png";

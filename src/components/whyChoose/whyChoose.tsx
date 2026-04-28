@@ -6,10 +6,10 @@ import chooseBg from "../../assets/background/choose_bg.webp";
 import titleShapeImg from "../../assets/icons/title_shape.png";
 
 // You may need to create/update these image paths in your assets folder
-import salamiImg from "../../assets/carousel/salamie.webp";
-import carcassImg from "../../assets/carousel/karkas.jpeg"; // Added based on requirements
-import biltongImg from "../../assets/carousel/biltong.jpeg"; // Added based on requirements
-import roosterbroodImg from "../../assets/carousel/braai.webp"; // Using braai as roosterbrood placeholder
+import kouevleisImg from "../../assets/carousel/kouevleis.jpeg"; //
+import carcassImg from "../../assets/carousel/karkas.jpeg";
+import biltongImg from "../../assets/carousel/biltong.jpeg";
+import roosterbroodImg from "../../assets/carousel/braai.webp";
 
 type Feature = {
     title: string;
@@ -24,7 +24,7 @@ const FEATURES: Feature[] = [
         shortDesc: "Handmade cold meat from 100% pure meat.",
         longDesc:
             "Curated range includes salami*, ham, polony, jagdwurst, cheesegrillers*, russians*, viennas*, bratwurst, currywurst, rauchfleisch and black forest ham. (*Starred products available in beef and pork options).",
-        img: salamiImg,
+        img: kouevleisImg,
     },
     {
         title: "Fresh Local Meat",
@@ -37,14 +37,14 @@ const FEATURES: Feature[] = [
         title: "Handmade Snacks",
         shortDesc: "Traditional handmade snacks.",
         longDesc:
-            "Droëwors, biltong, chilli bites, cabanossi, biltong flaps, warmwiele, and bacon biltong.",
+            "Biltong is a truly Traditional Namibian and South African product that originated in South Africa during the ‘Groot Trek’ as settlers moved inland, they needed long lasting protein sources and made Biltong. Biltong consists of air-dried cured meat. Our range includes Biltong, droёwors, chilli bites, cabanossi, biltong flaps, warmwiele, bacon biltong. ",
         img: biltongImg,
     },
     {
         title: "Daily Deli",
-        shortDesc: "Our Deli offers daily homemade meals and takeaways.",
+        shortDesc: '"What\'s for lunch?" We have the answer.',
         longDesc:
-            "To make life easier in the afternoons, our deli prepares homemade dishes every day. Come enjoy our tasty burgers, pizzas, braai, Russians, and real hand-cut chips.",
+            "Our deli prepares homemade dishes every day as well as burgers, braai meat, Russians, hand-cut chips and pizzas to grab and go. ",
         img: roosterbroodImg,
     },
 ];

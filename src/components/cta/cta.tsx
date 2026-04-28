@@ -6,7 +6,7 @@ import sheep from "../../assets/background/sheepbackground.webp";
 const ETHOS_STATEMENTS = [
     {
         heading: "Everything we do is for you- our customer",
-        text: "Southern small-town values and friendliness, as well as exceptional service delivery are central to who we are and how we do business. Taking care of every step in the process from sourcing naturally reared livestock to selecting the best cuts and preparing your order is what drives us everyday. ",
+        text: "Taking care of every step in the process; from sourcing naturally reared livestock to selecting the best cuts and preparing your order to ensure customer satisfaction is what drives our team every day. ",
     },
 ];
 

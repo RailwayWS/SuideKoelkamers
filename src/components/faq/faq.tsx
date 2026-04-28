@@ -89,7 +89,6 @@ const IconCard = () => (
     </svg>
 );
 
-// ── Types & Data ───────────────────────────
 type FaqItem = {
     question: string;
     answer: React.ReactNode;
@@ -101,74 +100,79 @@ const FAQS: FaqItem[] = [
         answer: "We don’t have a pricelist available on our website as meat prices vary depending on the market. Please contact us via email or cellphone and we will assist you.",
     },
     {
-        question:
-            "WE ARE TRAVELLING AND WANT TO PLACE AN ORDER. HOW DOES IT WORK?",
+        question: "We are travelling to Namibia. Can we place an order?",
         answer: (
-            <div className="faq-process">
-                <div className="faq-step">
-                    <div className="faq-step-number">
-                        <IconPhone />
+            <>
+                <p className="faq-intro">Yes, the process works as follows:</p>
+                <div className="faq-process">
+                    <div className="faq-step">
+                        <div className="faq-step-number">
+                            <IconPhone />
+                        </div>
+                        <div className="faq-step-content">
+                            <strong>Contact Us</strong>
+                            <p>
+                                Send us an email, WhatsApp, or give us a call.
+                            </p>
+                        </div>
                     </div>
-                    <div className="faq-step-content">
-                        <strong>Contact Us</strong>
-                        <p>Send us an email, WhatsApp, or give us a call.</p>
+                    <div className="faq-step">
+                        <div className="faq-step-number">
+                            <IconInfo />
+                        </div>
+                        <div className="faq-step-content">
+                            <strong>Receive Info</strong>
+                            <p>
+                                We will provide an order list with products and
+                                prices.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="faq-step">
+                        <div className="faq-step-number">
+                            <IconOrder />
+                        </div>
+                        <div className="faq-step-content">
+                            <strong>Place Order</strong>
+                            <p>
+                                Place your order at least a week prior to
+                                arriving. Provide the following:
+                            </p>
+                            <ul className="faq-step-list">
+                                <li>Pick up date</li>
+                                <li>
+                                    Packaging instructions (e.g., 500g x 3
+                                    boerewors, Beef rump 300g x 4, etc.)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="faq-step">
+                        <div className="faq-step-number">
+                            <IconCard />
+                        </div>
+                        <div className="faq-step-content">
+                            <strong>Collect & Pay</strong>
+                            <p>
+                                When collecting your order, you can easily swipe
+                                in-store.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div className="faq-step">
-                    <div className="faq-step-number">
-                        <IconInfo />
-                    </div>
-                    <div className="faq-step-content">
-                        <strong>Receive Info</strong>
-                        <p>
-                            We will provide an order list with products and
-                            prices.
-                        </p>
-                    </div>
-                </div>
-                <div className="faq-step">
-                    <div className="faq-step-number">
-                        <IconOrder />
-                    </div>
-                    <div className="faq-step-content">
-                        <strong>Place Order</strong>
-                        <p>
-                            Place your order at least a week prior to arriving.
-                            Provide the following:
-                        </p>
-                        <ul className="faq-step-list">
-                            <li>Pick up date</li>
-                            <li>
-                                Packaging instructions (e.g., 500g x 3
-                                boerewors, Beef rump 300g x 4, etc.)
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="faq-step">
-                    <div className="faq-step-number">
-                        <IconCard />
-                    </div>
-                    <div className="faq-step-content">
-                        <strong>Collect & Pay</strong>
-                        <p>
-                            When collecting your order, you can easily swipe
-                            in-store.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            </>
         ),
+    },
+
+    {
+        question:
+            "WHAT IS THE REGULATION FOR BRINGING MEAT FROM SOUTH AFRICA TO NAMIBIA?",
+        answer: "Due to the Foot-and-Mouth Disease in South Africa, all meat and animal products, including raw or cooked products, are prohibited from entering Namibia. The primary goal is to prevent the Foot-and-Mouth Disease entering the country which can have a devastating effect on the local economy, livestock industry and Namibia’s valuable export markets.",
     },
     {
         question:
             "CAN WE TAKE MEAT OVER THE BORDER WHEN TRAVELLING FROM NAMIBIA TO SOUTH AFRICA?",
         answer: "Yes, you are allowed to take 25 kg of meat per person but not more than 75 kg per car. It is recommended to keep receipts for meat bought in Namibia for border inspection. Remember to declare your meat at the South African Border.",
-    },
-    {
-        question:
-            "WHAT IS THE REGULATION FOR BRINGING MEAT FROM SOUTH AFRICA TO NAMIBIA?",
-        answer: "Due to the Foot-and-Mouth Disease in South Africa, all meat and animal products, including raw or cooked products, are prohibited from entering Namibia. The primary goal is to prevent the Foot-and-Mouth Disease entering the country which can have a devastating effect on the local economy, livestock industry and Namibia’s valuable export markets.",
     },
 ];
 

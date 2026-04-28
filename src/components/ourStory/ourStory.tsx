@@ -5,15 +5,15 @@ import titleShapeImg from "../../assets/icons/title_shape.png";
 const STORY_BLOCKS = [
     {
         year: "The Start 2009",
-        text: "After 10 years as Principal and 6 years as Operations Manager at Klein Aus Vista Johann Swiegers had an urge to venture into business to build a something for his family and ultimately leave something behind for the next generation. He bought Suide Koelkamers a butchery in 2009.",
+        text: "After 10 years as Principal and 6 years as Operations Manager at Klein Aus Vista Johann Swiegers had an urge to venture into business to build something for his family that can be passed on to the next generation. He then bought Suide Koelkamers butchery in 2009 with the intent to make a difference in the community by creating jobs and supporting local farmers.",
     },
     {
-        year: "Our Mission",
-        text: "His intention was to make a difference in the community by creating jobs and supporting local farmers.",
+        year: "First 10 years",
+        text: "We learned a lot of hard and good lessons as with any new business. However, there were good years as well as difficult years, but through it all it was evident that good people relationships, trust, hard work and faith was and still is the cornerstone to stay in business. ",
     },
     {
         year: "2020-2021",
-        text: "Covid had a big impact on all industries especially the tourism sector. With our Tourism market being closed we had to look at alternative income streams. Our Deli section that offers daily meals and takeaways was then born. We also then started to make our own cold meat range inhouse. We also ventured into a different town in the South by starting Suide Vleis in Mariental to broaden our reach. Covid was tough for everyone but made us all definitely stronger.",
+        text: "Covid had a big impact on all industries especially the tourism sector. With our tourism market being put on hold without knowing the date of reopening, we had to look at alternative income streams to be able to keep all personnel employed. After strategising we started our Deli as well as to produced our own cold meat range in house that was normally bought in. To broaden our customer reach we also ventured into a different town in the South by starting Suide Vleis in Mariental. The new ventures paid off and we are proud to say we could keep all personnel employed without salary cuts. ",
     },
     {
         year: "Family Run",

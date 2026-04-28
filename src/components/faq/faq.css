@@ -150,6 +150,13 @@
     padding-top: 16px;
 }
 
+.faq-intro {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    margin: 0 0 20px 0;
+}
+
 /* ── Graphical Process UI ─────────────────── */
 .faq-process {
     display: flex;

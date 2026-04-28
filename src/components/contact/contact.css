@@ -181,14 +181,18 @@
     gap: 16px;
 }
 
+.contact-header-socials {
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
 /* --- Form --- */
-/* --- Bottom Row: Social + Form (centered) --- */
+/* --- Bottom Row: Form (centered) --- */
 .contact-bottom {
     margin-top: 42px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    max-width: 760px;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }

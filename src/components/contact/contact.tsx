@@ -44,9 +44,57 @@ export default function ContactSection() {
                         Contact <span className="highlight-red">Us</span>
                     </h2>
                     <p className="contact-desc">
-                        Order ahead of time and your order will be waiting for
-                        you.
+                        Order ahead of time and we will make sure your order
+                        will be waiting for you.
                     </p>
+                    <div className="social-links contact-header-socials">
+                        <a
+                            href="https://www.facebook.com/share/18j6pK4xs3/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="social-link"
+                            aria-label="Facebook"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/suide_vleishuis?igsh=YWUyMWU2Zjg0Mnpn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="social-link"
+                            aria-label="Instagram"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                    ry="5"
+                                />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
                 {/* Branches */}
@@ -212,60 +260,8 @@ export default function ContactSection() {
                     </div>
                 </div>
 
-                {/* Bottom row: Social + Contact Form */}
+                {/* Bottom row: Contact Form */}
                 <div className="contact-bottom">
-                    <div className="social-card reveal reveal--d3">
-                        <span className="social-card-label">Social Media</span>
-                        <div className="social-links">
-                            <a
-                                href="https://www.facebook.com/share/18j6pK4xs3/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="Facebook"
-                            >
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                                </svg>
-                                <span>Facebook</span>
-                            </a>
-
-                            <a
-                                href="https://www.instagram.com/suide_vleishuis?igsh=YWUyMWU2Zjg0Mnpn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="Instagram"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <rect
-                                        x="2"
-                                        y="2"
-                                        width="20"
-                                        height="20"
-                                        rx="5"
-                                        ry="5"
-                                    />
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                    <line
-                                        x1="17.5"
-                                        y1="6.5"
-                                        x2="17.51"
-                                        y2="6.5"
-                                    />
-                                </svg>
-                                <span>Instagram</span>
-                            </a>
-                        </div>
-                    </div>
-
                     <form
                         className="contact-form reveal reveal--d4"
                         onSubmit={onSubmit}

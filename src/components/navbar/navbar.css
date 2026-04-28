@@ -32,6 +32,44 @@
     gap: var(--sp-4);
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-social-icons a {
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition:
+        opacity var(--ease-base),
+        color var(--ease-base),
+        transform var(--ease-base);
+}
+
+.navbar--scrolled .nav-social-icons a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-social-icons a:hover {
+    color: #fff;
+}
+
+.navbar--scrolled .nav-social-icons a:hover {
+    transform: translateY(-2px);
+}
+
 /* ── Logo ──────────────────────────────────── */
 .nav-logo {
     display: flex;
