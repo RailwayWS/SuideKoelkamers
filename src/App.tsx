@@ -11,8 +11,8 @@ import sliderIcon from "./assets/icons/slider_icon.png";
 
 /* ── Hero images (WebP compressed) ──────────────────────────────────────── */
 import heroDesktopWebp from "./assets/hero/hero_desktop.webp";
-import heroDesktop2Webp from "./assets/hero/heroNew3.jpeg";
-import heroDesktop3Webp from "./assets/hero/HeroImageGemini.png";
+import heroDesktop2Webp from "./assets/hero/buite.png";
+import heroDesktop3Webp from "./assets/hero/biltong.jpeg";
 import heroMobile2Webp from "./assets/hero/hero_mobile1.webp";
 import salamieWebp from "./assets/hero/salamie.webp";
 
@@ -38,9 +38,9 @@ import {
 
 // Desktop hero should cycle through 3 images just like mobile
 const HERO_SLIDES_DESKTOP = [
-    heroDesktopWebp,
     heroDesktop2Webp,
     heroDesktop3Webp,
+    heroDesktopWebp,
 ];
 // Mobile hero cycles through all images labeled "mobile" (+ the team + the salamis)
 const HERO_SLIDES_MOBILE = [salamieWebp, heroDesktopWebp, heroMobile2Webp];
